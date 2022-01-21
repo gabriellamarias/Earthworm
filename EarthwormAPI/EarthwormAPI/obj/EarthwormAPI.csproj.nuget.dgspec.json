@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Gabi\\source\\repos\\EarthwormAPI\\EarthwormAPI\\EarthwormAPI.csproj": {}
+    "C:\\Users\\Gabi\\source\\repos\\Earthworm\\EarthwormAPI\\EarthwormAPI\\EarthwormAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Gabi\\source\\repos\\EarthwormAPI\\EarthwormAPI\\EarthwormAPI.csproj": {
+    "C:\\Users\\Gabi\\source\\repos\\Earthworm\\EarthwormAPI\\EarthwormAPI\\EarthwormAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Gabi\\source\\repos\\EarthwormAPI\\EarthwormAPI\\EarthwormAPI.csproj",
+        "projectUniqueName": "C:\\Users\\Gabi\\source\\repos\\Earthworm\\EarthwormAPI\\EarthwormAPI\\EarthwormAPI.csproj",
         "projectName": "EarthwormAPI",
-        "projectPath": "C:\\Users\\Gabi\\source\\repos\\EarthwormAPI\\EarthwormAPI\\EarthwormAPI.csproj",
+        "projectPath": "C:\\Users\\Gabi\\source\\repos\\Earthworm\\EarthwormAPI\\EarthwormAPI\\EarthwormAPI.csproj",
         "packagesPath": "C:\\Users\\Gabi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Gabi\\source\\repos\\EarthwormAPI\\EarthwormAPI\\obj\\",
+        "outputPath": "C:\\Users\\Gabi\\source\\repos\\Earthworm\\EarthwormAPI\\EarthwormAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Gabi\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -39,6 +39,12 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
