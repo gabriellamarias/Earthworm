@@ -16,7 +16,7 @@ export class PlantApiService {
   ) { }
 
   getPlants(): Observable<Plant[]> {
-        return this.httpClient.get<Plant[]>("https://www.growstuff.org/crops.json")
+    return this.httpClient.get<Plant[]>("https://localhost:44311/growstuff/plantlist")
 
 
   }
