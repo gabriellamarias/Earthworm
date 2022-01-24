@@ -1,28 +1,28 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Gabi\\source\\repos\\Earthworm\\EarthwormAPI\\EarthwormAPI\\EarthwormAPI.csproj": {}
+    "C:\\Users\\n\\source\\repos\\Earthworm\\EarthwormAPI\\EarthwormAPI\\EarthwormAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Gabi\\source\\repos\\Earthworm\\EarthwormAPI\\EarthwormAPI\\EarthwormAPI.csproj": {
+    "C:\\Users\\n\\source\\repos\\Earthworm\\EarthwormAPI\\EarthwormAPI\\EarthwormAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Gabi\\source\\repos\\Earthworm\\EarthwormAPI\\EarthwormAPI\\EarthwormAPI.csproj",
+        "projectUniqueName": "C:\\Users\\n\\source\\repos\\Earthworm\\EarthwormAPI\\EarthwormAPI\\EarthwormAPI.csproj",
         "projectName": "EarthwormAPI",
-        "projectPath": "C:\\Users\\Gabi\\source\\repos\\Earthworm\\EarthwormAPI\\EarthwormAPI\\EarthwormAPI.csproj",
-        "packagesPath": "C:\\Users\\Gabi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Gabi\\source\\repos\\Earthworm\\EarthwormAPI\\EarthwormAPI\\obj\\",
+        "projectPath": "C:\\Users\\n\\source\\repos\\Earthworm\\EarthwormAPI\\EarthwormAPI\\EarthwormAPI.csproj",
+        "packagesPath": "C:\\Users\\n\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\n\\source\\repos\\Earthworm\\EarthwormAPI\\EarthwormAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Gabi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\n\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
-          "https://api.nuget.org/v3/index.json": {},
-          "https://nuget.pkg.github.com/gabriellamarias/index.json": {}
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
@@ -63,7 +63,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
         }
       }
     }
