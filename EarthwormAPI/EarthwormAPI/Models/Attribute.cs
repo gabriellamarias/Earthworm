@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace EarthwormAPI.Models
 {
-    public class Attribute
+    public class Attributes
     {
         public string description { get; set; } 
         public int row_spacing { get; set; } 

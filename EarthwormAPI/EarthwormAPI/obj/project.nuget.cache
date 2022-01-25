@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "bzR5eSHtB1hg3KYOkqh7gilwM53S2CqewBFAs/vMUBJG8dp9B79rdd6XGAohp+Koz2ztz7GAg/1R8/Sph2pJ7A==",
+  "dgSpecHash": "+07sA4qez7rZXy6FBvUHFpSUyBnR6F9DxQFvh8sX/Mj3qFG09J96vdVhCnktCS7n3WyegW9jkK7xpXDkwCwevw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\n\\source\\repos\\Earthworm\\EarthwormAPI\\EarthwormAPI\\EarthwormAPI.csproj",
+  "projectFilePath": "C:\\Users\\sidma\\source\\repos\\Earthworm\\EarthwormAPI\\EarthwormAPI\\EarthwormAPI.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\n\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+    "C:\\Users\\sidma\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
   ],
   "logs": []
 }

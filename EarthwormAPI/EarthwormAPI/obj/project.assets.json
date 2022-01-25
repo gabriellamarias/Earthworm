@@ -48,19 +48,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\n\\.nuget\\packages\\": {}
+    "C:\\Users\\sidma\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\n\\source\\repos\\Earthworm\\EarthwormAPI\\EarthwormAPI\\EarthwormAPI.csproj",
+      "projectUniqueName": "C:\\Users\\sidma\\source\\repos\\Earthworm\\EarthwormAPI\\EarthwormAPI\\EarthwormAPI.csproj",
       "projectName": "EarthwormAPI",
-      "projectPath": "C:\\Users\\n\\source\\repos\\Earthworm\\EarthwormAPI\\EarthwormAPI\\EarthwormAPI.csproj",
-      "packagesPath": "C:\\Users\\n\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\n\\source\\repos\\Earthworm\\EarthwormAPI\\EarthwormAPI\\obj\\",
+      "projectPath": "C:\\Users\\sidma\\source\\repos\\Earthworm\\EarthwormAPI\\EarthwormAPI\\EarthwormAPI.csproj",
+      "packagesPath": "C:\\Users\\sidma\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\sidma\\source\\repos\\Earthworm\\EarthwormAPI\\EarthwormAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\n\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\sidma\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -68,7 +68,8 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {},
+        "https://nuget.pkg.github.com/siddharth-I/index.json": {}
       },
       "frameworks": {
         "netcoreapp3.1": {
@@ -109,7 +110,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
       }
     }
   }

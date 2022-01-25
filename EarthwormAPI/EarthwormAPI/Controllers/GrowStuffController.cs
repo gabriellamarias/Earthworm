@@ -28,7 +28,7 @@ namespace EarthwormAPI.Controllers
                 List<dynamic> dynamicPlant = new List<dynamic>();
 
 
-                for (var x = 1; x < 200;  x++)
+                for (var x = 1; x < 100;  x++)
                 {
                     var response = await client.GetAsync(string.Format(plantURL, $"/{x}"));
                     //var jsonDataAsString = await response.Content.ReadAsStringAsync();
@@ -41,8 +41,11 @@ namespace EarthwormAPI.Controllers
                     {
                         var jsonDataAsString = await response.Content.ReadAsStringAsync();
                         dynamic config = JsonConvert.DeserializeObject<ExpandoObject>(jsonDataAsString, new ExpandoObjectConverter());
+                        
 
-                        dynamicPlant.Add(config);
+                        Plant newPlant = new Plant(config);
+                        plants.Add(newPlant);
+                        //dynamicPlant.Add(config);
                     }
 
 
@@ -50,7 +53,7 @@ namespace EarthwormAPI.Controllers
 
                 }
                 //var listOfPlants = new OkObjectResult (plants);
-                var listOfPlants = new OkObjectResult(dynamicPlant);
+                var listOfPlants = new OkObjectResult(plants);
 
 
                 return (listOfPlants);
