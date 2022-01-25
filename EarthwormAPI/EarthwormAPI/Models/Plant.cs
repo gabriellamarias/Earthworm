@@ -30,44 +30,84 @@ namespace EarthwormAPI.Models
             this.median_days_to_first_harvest = plant.median_days_to_first_harvest;
             this.median_days_to_last_harvest = plant.median_days_to_last_harvest;
 
-            //try
-            //{
-            //    this.openfarm_data = plant.openfarm_data;
-            //}
-            //catch (Microsoft.CSharp.RuntimeBinder.RuntimeBinderException)
-            //{
-            //    this.openfarm_data.attributes.description = "Not Available";
-            //    this.openfarm_data.attributes.row_spacing = 0;
-            //    this.openfarm_data.attributes.spread = 0;
-            //    this.openfarm_data.attributes.height = 0;
-            //    this.openfarm_data.attributes.sowing_method = "Not Available";
-            //    this.openfarm_data.attributes.sun_requirements = "Not Available";
-            //    this.openfarm_data.attributes.growing_degree_days = 0;
-            //    this.openfarm_data.attributes.main_image_path = "Not Available";
-            //}
-            //var x = plant.openfarm_data.attributes.description.ToString();
-
             try
             {
                 this.openfarm_data.attributes.description = plant.openfarm_data.attributes.description;
-                this.openfarm_data.attributes.row_spacing = plant.openfarm_data.attributes.row_spacing;
-                this.openfarm_data.attributes.spread = plant.openfarm_data.attributes.spread;
-                this.openfarm_data.attributes.height = plant.openfarm_data.attributes.height;
-                this.openfarm_data.attributes.sowing_method = plant.openfarm_data.attributes.sowing_method;
-                this.openfarm_data.attributes.sun_requirements = plant.openfarm_data.attributes.sun_requirements;
-                this.openfarm_data.attributes.growing_degree_days = plant.openfarm_data.attributes.growing_degree_days;
-                this.openfarm_data.attributes.main_image_path = plant.openfarm_data.attributes.main_image_path;
 
             }
             catch (Microsoft.CSharp.RuntimeBinder.RuntimeBinderException)
             {
                 this.openfarm_data.attributes.description = "Not Available";
+            }
+
+            try
+            { 
+                string rowString = plant.openfarm_data.attributes.row_spacing.ToString();
+                int row = int.Parse(rowString);
+                this.openfarm_data.attributes.row_spacing = row;
+            }
+            catch (Microsoft.CSharp.RuntimeBinder.RuntimeBinderException)
+            {               
                 this.openfarm_data.attributes.row_spacing = 0;
+            }
+
+            try
+            {
+                string spreadString = plant.openfarm_data.attributes.spread.ToString();
+                int spread = int.Parse(spreadString);
+                this.openfarm_data.attributes.spread = spread;
+            }
+            catch (Microsoft.CSharp.RuntimeBinder.RuntimeBinderException)
+            {
                 this.openfarm_data.attributes.spread = 0;
+            }
+
+            try
+            {
+                string heightString = plant.openfarm_data.attributes.height.ToString();
+                int height = int.Parse(heightString);
+                this.openfarm_data.attributes.height = height;
+            }
+            catch (Microsoft.CSharp.RuntimeBinder.RuntimeBinderException)
+            {
                 this.openfarm_data.attributes.height = 0;
+            }
+
+            try
+            {
+                this.openfarm_data.attributes.sowing_method = plant.openfarm_data.attributes.sowing_method;
+            }
+            catch (Microsoft.CSharp.RuntimeBinder.RuntimeBinderException)
+            {
                 this.openfarm_data.attributes.sowing_method = "Not Available";
+            }
+
+            try
+            {
+                this.openfarm_data.attributes.sun_requirements = plant.openfarm_data.attributes.sun_requirements;
+            }
+            catch (Microsoft.CSharp.RuntimeBinder.RuntimeBinderException)
+            {
                 this.openfarm_data.attributes.sun_requirements = "Not Available";
+            }
+
+            try
+            {
+                string growingString = plant.openfarm_data.attributes.growing_degree_days.ToString();
+                int growing = int.Parse(growingString);
+                this.openfarm_data.attributes.growing_degree_days = growing;
+            }
+            catch (Microsoft.CSharp.RuntimeBinder.RuntimeBinderException)
+            {
                 this.openfarm_data.attributes.growing_degree_days = 0;
+            }
+
+            try
+            {
+                this.openfarm_data.attributes.main_image_path = plant.openfarm_data.attributes.main_image_path;
+            }
+            catch (Microsoft.CSharp.RuntimeBinder.RuntimeBinderException)
+            {
                 this.openfarm_data.attributes.main_image_path = "Not Available";
             }
 

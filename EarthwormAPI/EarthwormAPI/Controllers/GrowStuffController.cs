@@ -28,7 +28,7 @@ namespace EarthwormAPI.Controllers
                 List<dynamic> dynamicPlant = new List<dynamic>();
 
 
-                for (var x = 1; x < 100;  x++)
+                for (var x = 1; x < 30;  x++)
                 {
                     var response = await client.GetAsync(string.Format(plantURL, $"/{x}"));
                     //var jsonDataAsString = await response.Content.ReadAsStringAsync();
