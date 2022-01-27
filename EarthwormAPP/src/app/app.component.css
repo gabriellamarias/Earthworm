@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css?family=Fredericka+the+Great');
+.container-fluid{
+    font-family: Fredericka the Great;
+    /* font-size: 20px; */
+    color: rgb(105, 105, 105);
+    background-color: rgb(75, 51, 37);
+    
+}
+
+.nav-item{
+    font-size: 40px;
+}
+
+.navbar-brand{
+    font-size: 60px;
+}
