@@ -1,1 +1,16 @@
-<p>plant-list works!</p>
+<!-- <p *ngFor="let p of plants"> {{ p.name }}  {{ p.openfarm_data.attributes.description }}
+    <img src= "{{p.openfarm_data.attributes.main_image_path}}" width="300" height="400" >
+   {{ p.en_wikipedia_url }} 
+</p> -->
+
+<div class="cards ; row row-cols-1 row-cols-md-4 g-4">
+
+<div *ngFor="let p of plants" class="card; shadow p-3 mb-5 bg-white rounded" style="width: 18rem;">
+    <img src="{{p.openfarm_data.attributes.main_image_path}}" class="card-img-top" alt="Photo not Available">
+    <div class="card-body">
+      <h5 class="card-title">{{ p.name }}</h5>
+      <p class="card-text">{{ p.en_wikipedia_url }}</p>
+      <a href="#" class="btn btn-primary">details</a>
+    </div>
+  </div>
+</div>
