@@ -7,6 +7,6 @@ namespace EarthwormAPI.Models
 {
     public class Openfarm_data
     {
-        public Attribute attribute { get; set; }
+        public Attributes attributes { get; set; } = new Attributes();
     }
 }
