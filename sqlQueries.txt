@@ -1,0 +1,29 @@
+create database PlantDB;
+
+create table garden (
+id int identity(1,1) primary key,
+gardenName nvarchar (255), 
+plantName nvarchar (255)
+);
+
+create table gardener (
+id int identity(1,1) primary key,
+username nvarchar (255), 
+gardenId int foreign key references garden(id)
+);
+
+insert into garden ( gardenName, plantName )
+values
+('test garden 1', 'alfalfa'),
+('test garden 2', 'almond');
+
+insert into gardener ( username, gardenId )
+values
+('nathan1', 1),
+('sid1', 1),
+('gabi1', 2),
+('nathan1', 2);
+
+
+select * from garden;
+select * from gardener;

@@ -1,1 +1,15 @@
-<p>plant-page works!</p>
+<div class="card; shadow p-3 mb-5 bg-white rounded" style="width: 18rem;">
+    <img src="{{plant.openfarm_data.attributes.main_image_path}}" class="card-img-top" alt="Photo not Available">
+    <div class="card-body">
+      <h5 class="card-title">{{ plant.name }}</h5>
+      <p class="card-text">{{ plant.en_wikipedia_url }}</p>
+      
+      <div class="form-group"> 
+        <input class="form-control" type="text" placeholder="Enter Garden name" aria-label="Garden Name" [(ngModel)]="gardenName">
+    </div>
+    <button type="button" class="btn btn-primary btn-sm" (click)="addToGarden()">Add To Garden</button>
+  
+    </div>
+  </div>
+
+  

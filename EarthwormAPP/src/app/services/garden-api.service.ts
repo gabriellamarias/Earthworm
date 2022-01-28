@@ -17,8 +17,15 @@ export class GardenApiService {
 
   getGardens(): Observable<Garden[]> {
     return this.httpClient.get<Garden[]>("https://localhost:44311/api/garden")
+  }
+
+  createGarden(garden: Garden): Observable<Garden> {
+    return this.httpClient.post<Garden>("https://localhost:44311/api/garden", garden)
+  }
 
 
+  deleteGarden(id: number): Observable<unknown> {
+    return this.httpClient.delete(`https://localhost:44311/api/garden?ID=${ id }`)
   }
 
 

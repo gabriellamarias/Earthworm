@@ -28,6 +28,35 @@ namespace EarthwormAPI.Controllers
             return await _context.garden.ToListAsync();
         }
 
+        [HttpPost]
+        
+        public async Task<IActionResult> CreateGarden([Bind("gardenName,plantName")] garden garden)
+        {
+
+            
+            await _context.AddAsync(garden);
+            await _context.SaveChangesAsync();
+
+            var result = new OkObjectResult(garden);
+            return result;
+
+        }
+
+        [HttpDelete]
+        public async Task<ActionResult<garden>> DeleteGarden(int id)
+        {
+            var garden = await _context.garden.FindAsync(id);
+            if (garden == null)
+            {
+                return NotFound();
+            }
+
+            _context.garden.Remove(garden);
+            await _context.SaveChangesAsync();
+
+            return new OkResult();
+        }
+
         // GET: api/garden/5
         [HttpGet("{id}")]
         public async Task<ActionResult<garden>> Getgarden(int id)
@@ -77,30 +106,18 @@ namespace EarthwormAPI.Controllers
         // POST: api/garden
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
-        [HttpPost]
-        public async Task<ActionResult<garden>> Postgarden(garden garden)
-        {
-            _context.garden.Add(garden);
-            await _context.SaveChangesAsync();
+        //[HttpPost]
+        //public async Task<ActionResult<garden>> Postgarden(garden garden)
+        //{
+        //    _context.garden.Add(garden);
+        //    await _context.SaveChangesAsync();
 
-            return CreatedAtAction("Getgarden", new { id = garden.id }, garden);
-        }
+        //    return CreatedAtAction("Getgarden", new { id = garden.id }, garden);
+        //}
 
         // DELETE: api/garden/5
-        [HttpDelete("{id}")]
-        public async Task<ActionResult<garden>> Deletegarden(int id)
-        {
-            var garden = await _context.garden.FindAsync(id);
-            if (garden == null)
-            {
-                return NotFound();
-            }
-
-            _context.garden.Remove(garden);
-            await _context.SaveChangesAsync();
-
-            return garden;
-        }
+        //[HttpDelete("{id}")]
+    
 
         private bool gardenExists(int id)
         {
