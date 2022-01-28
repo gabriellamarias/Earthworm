@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Plant } from '../models/plant';
 import { PlantApiService } from '../services/plant-api.service';
 
@@ -9,13 +10,20 @@ import { PlantApiService } from '../services/plant-api.service';
 })
 export class PlantListComponent implements OnInit {
   plants: Plant[] = []
+  @Input() content!: Plant;
+
+  linkToEvent: string = `#`;
+
 
   constructor(
-    private plantSVC: PlantApiService
+    private plantSVC: PlantApiService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
     this.addDefaultPlants();
+    this.linkToEvent = `/plants/${this.content.name}`;
+
   }
 
   addDefaultPlants() {

@@ -8,13 +8,17 @@ import { AppComponent } from './app.component';
 import { TestComponent } from './test/test.component';
 import { PlantListComponent } from './plant-list/plant-list.component';
 import { PlantPageComponent } from './plant-page/plant-page.component';
+import { GardenComponent } from './garden/garden.component';
+import { GardenerComponent } from './gardener/gardener.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TestComponent,
     PlantListComponent,
-    PlantPageComponent
+    PlantPageComponent,
+    GardenComponent,
+    GardenerComponent
   ],
   imports: [
     BrowserModule,
