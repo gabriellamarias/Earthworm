@@ -10,6 +10,7 @@ import { PlantListComponent } from './plant-list/plant-list.component';
 import { PlantPageComponent } from './plant-page/plant-page.component';
 import { GardenComponent } from './garden/garden.component';
 import { GardenerComponent } from './gardener/gardener.component';
+import { PlantPreviewComponent } from './plant-preview/plant-preview.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { GardenerComponent } from './gardener/gardener.component';
     PlantListComponent,
     PlantPageComponent,
     GardenComponent,
-    GardenerComponent
+    GardenerComponent,
+    PlantPreviewComponent
   ],
   imports: [
     BrowserModule,

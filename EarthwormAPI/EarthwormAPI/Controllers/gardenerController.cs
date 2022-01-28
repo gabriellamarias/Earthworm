@@ -28,6 +28,35 @@ namespace EarthwormAPI.Controllers
             return await _context.gardener.ToListAsync();
         }
 
+        [HttpPost]
+
+        public async Task<IActionResult> CreateGardener([Bind("username,gardenId")] gardener gardener)
+        {
+
+
+            await _context.AddAsync(gardener);
+            await _context.SaveChangesAsync();
+
+            var result = new OkObjectResult(gardener);
+            return result;
+
+        }
+
+        [HttpDelete]
+        public async Task<ActionResult<gardener>> DeleteGardener(int id)
+        {
+            var gardener = await _context.gardener.FindAsync(id);
+            if (gardener == null)
+            {
+                return NotFound();
+            }
+
+            _context.gardener.Remove(gardener);
+            await _context.SaveChangesAsync();
+
+            return new OkResult();
+        }
+
         // GET: api/gardener/5
         [HttpGet("{id}")]
         public async Task<ActionResult<gardener>> Getgardener(int id)
@@ -77,30 +106,17 @@ namespace EarthwormAPI.Controllers
         // POST: api/gardener
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
-        [HttpPost]
-        public async Task<ActionResult<gardener>> Postgardener(gardener gardener)
-        {
-            _context.gardener.Add(gardener);
-            await _context.SaveChangesAsync();
+        //[HttpPost]
+        //public async Task<ActionResult<gardener>> Postgardener(gardener gardener)
+        //{
+        //    _context.gardener.Add(gardener);
+        //    await _context.SaveChangesAsync();
 
-            return CreatedAtAction("Getgardener", new { id = gardener.id }, gardener);
-        }
+        //    return CreatedAtAction("Getgardener", new { id = gardener.id }, gardener);
+        //}
 
         // DELETE: api/gardener/5
-        [HttpDelete("{id}")]
-        public async Task<ActionResult<gardener>> Deletegardener(int id)
-        {
-            var gardener = await _context.gardener.FindAsync(id);
-            if (gardener == null)
-            {
-                return NotFound();
-            }
-
-            _context.gardener.Remove(gardener);
-            await _context.SaveChangesAsync();
-
-            return gardener;
-        }
+    
 
         private bool gardenerExists(int id)
         {

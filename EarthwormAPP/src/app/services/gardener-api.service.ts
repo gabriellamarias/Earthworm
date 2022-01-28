@@ -17,8 +17,15 @@ export class GardenerApiService {
 
   getGardener(): Observable<Gardener[]> {
     return this.httpClient.get<Gardener[]>("https://localhost:44311/api/gardener")
+  }
+
+  createGardener(gardener: Gardener): Observable<Gardener> {
+    return this.httpClient.post<Gardener>("https://localhost:44311/api/gardener", gardener)
+  }
 
 
+  deleteGardener(id: number): Observable<unknown> {
+    return this.httpClient.delete(`https://localhost:44311/api/gardener?ID=${ id }`)
   }
 
 
