@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Fredericka+the+Great');
+@import url('https://fonts.googleapis.com/css?family=IM+Fell+English+SC');
 .container-fluid{
     font-family: Fredericka the Great;
     /* font-size: 20px; */
     color: rgb(105, 105, 105);
-    background-color: rgb(75, 51, 37);
+    background-color: rgb(77, 100, 61);
     
 }
 

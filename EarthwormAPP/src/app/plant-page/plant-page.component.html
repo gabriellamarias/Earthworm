@@ -1,15 +1,34 @@
-<div class="card; shadow p-3 mb-5 bg-white rounded" style="width: 18rem;">
-    <img src="{{plant.openfarm_data.attributes.main_image_path}}" class="card-img-top" alt="Photo not Available">
+<html>
+  <body style="background-color:rgb(77, 100, 61);text-align:center">
+  <div class="card; shadow p-3 mb-5 bg-white rounded" >
     <div class="card-body">
       <h5 class="card-title">{{ plant.name }}</h5>
-      <p class="card-text">{{ plant.en_wikipedia_url }}</p>
+      <img src="{{plant.openfarm_data.attributes.main_image_path}}" class="plant-image" alt="Photo not Available" width="500" height="300">
+      <p class="card-text">perennial: {{ plant.perennial }}</p>
+      <p class="card-text">median lifespan: {{ plant.median_lifespan }}</p>
+      <p class="card-text">days to first harvest: {{ plant.median_days_to_first_harvest }}</p>
+      <p class="card-text">days to last harvest: {{ plant.median_days_to_last_harvest }}</p>
+      <p class="card-text">{{ plant.openfarm_data.attributes.description }}</p>
+      <p class="card-text">row spacing: {{ plant.openfarm_data.attributes.row_spacing }}</p>
+      <p class="card-text">spread: {{ plant.openfarm_data.attributes.spread }}</p>
+      <p class="card-text">height: {{ plant.openfarm_data.attributes.height }}</p>
+      <p class="card-text">sowing method: {{ plant.openfarm_data.attributes.sowing_method }}</p>
+      <p class="card-text">sun requirements: {{ plant.openfarm_data.attributes.sun_requirements }}</p>
+      <p class="card-text">growing degree days: {{ plant.openfarm_data.attributes.growing_degree_days }}</p>
       
       <div class="form-group"> 
-        <input class="form-control" type="text" placeholder="Enter Garden name" aria-label="Garden Name" [(ngModel)]="gardenName">
+        <input class="form-control" type="text" placeholder="enter garden name" aria-label="Garden Name" [(ngModel)]="gardenName">
     </div>
-    <button type="button" class="btn btn-primary btn-sm" (click)="addToGarden()">Add To Garden</button>
+    <button type="button" class="btn btn-success" (click)="addToGarden()">add to garden</button>
+    <br>
+    <br>
+    <a href="/create-garden" class="btn btn-success">create garden</a>
   
     </div>
-  </div>
+    </div>
+  </body>
+</html>
+
+  <!-- style="width: 18rem;" -->
 
   

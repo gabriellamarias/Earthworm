@@ -2,11 +2,13 @@
 <div class="cards ; row row-cols-1 row-cols-md-4 g-4">
 
     <div class="card; shadow p-3 mb-5 bg-white rounded" style="width: 18rem;">
-        <img src="{{content.openfarm_data.attributes.main_image_path}}" class="card-img-top" alt="Photo not Available">
+        <img src="{{content.openfarm_data.attributes.main_image_path}}" class="plant-image" alt="Photo not Available" width="255" height="155">
         <div class="card-body">
           <h5 class="card-title">{{ content.name }}</h5>
-          <p class="card-text">{{ content.en_wikipedia_url }}</p>
-          <a href="{{ linkToPlant }}" class="btn btn-primary">details</a>
+          <a class="link" href= "{{ content.en_wikipedia_url }}" target="_blank">view wikipedia page</a>
+          <br>
+          <br>
+          <a href="{{ linkToPlant }}" class="btn btn-success">details</a>
         </div>
       </div>
     </div>

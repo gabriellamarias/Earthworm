@@ -50,7 +50,7 @@ plantName: string = "";
 }
 
 addToGarden() {
-  let garden = new Garden(this.id, this.gardenName, this.plant.name)
+  let garden = new Garden(this.gardenName, this.plant.name)
   this.gardenAPISvc.createGarden(garden).subscribe((garden) => {})
 }
 

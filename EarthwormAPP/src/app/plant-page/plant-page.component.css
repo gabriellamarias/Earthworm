@@ -1,0 +1,38 @@
+.card {
+    width: 100%;
+    top: 50px;
+    margin: 0 auto;
+    float: none; 
+    margin-bottom: 10px;
+    z-index: 1;
+}
+
+.card-title {
+    font-size: 30px;
+    font-family: Fredericka the Great;
+    color: whitesmoke;
+}
+
+.card-body{
+    background-color: rgb(77, 100, 61);
+    min-height: 200px;
+}
+
+.card-text{
+    font-size: 15px;
+    font-family: IM Fell English SC;
+    color: whitesmoke;
+}
+
+.btn {
+
+    font-size: 14px;
+    font-family: IM Fell English SC;
+
+}
+
+.body {
+    min-height: 100%
+}
+
+

@@ -1,0 +1,78 @@
+.ng-valid[required], .ng-valid.required  {
+    border-left: 5px solid #42A948; /* green */
+  }
+  
+  .ng-invalid:not(form)  {
+    border-left: 5px solid rgb(182, 128, 115); /* red */
+  }
+
+  .container {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    width: 500px;
+    height: 200px;
+    margin-left: 600px;
+    margin-top: 50px;
+  }
+
+  .col-xs-3 {
+      font-size: 16px;
+      font-weight: bold;
+      
+  }
+  .container {
+    font-family: IM Fell English SC;
+    font-size: 14px;
+    /* width: 500px;
+    height: 200px;
+    margin-left: 600px;
+    margin-top: 50px; */
+    width: 20%;
+    margin: 0 auto;
+    float: none; 
+    margin-bottom: 10px;
+  }
+
+  .col-xs-3 {
+    font-family: Fredericka the Great;
+    font-size: 30px;
+    text-align: center;
+    letter-spacing: 3px;
+      
+  }
+
+  .col-xs-9 {
+    font-family: IM Fell English SC;
+    font-size: 14px;
+
+  }
+
+  .formtitle{
+    font-family: IM Fell English SC;
+    font-size: 20px;
+    text-align: center;
+    color: whitesmoke;
+    letter-spacing: 3px;
+  }
+
+  .formtitledate{
+    font-family: Fredericka the Great;
+    font-size: 25px;
+    text-align: center;
+    letter-spacing: 3px;
+  }
+
+  p.title {
+    font-family: Fredericka the Great;
+    color: whitesmoke;
+    font-size: 30px;
+    text-align: center;
+    letter-spacing: 3px;
+}
+
+.btn {
+
+  font-size: 14px;
+  font-family: IM Fell English SC;
+
+}
