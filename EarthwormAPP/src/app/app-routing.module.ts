@@ -6,9 +6,11 @@ import { PlantListComponent } from './plant-list/plant-list.component';
 import { PlantPageComponent } from './plant-page/plant-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { CreateGardenComponent } from './create-garden/create-garden.component';
+import { GardenPageComponent } from './garden-page/garden-page.component';
 
 const routes: Routes = [
-  { path: "garden-center", component: GardenComponent},
+  { path: "garden-center", component: GardenPageComponent},
+  { path: "garden", component: GardenComponent},
   { path: "create-garden", component: CreateGardenComponent},
   { path: "gardener", component: GardenerComponent},
   { path: "plant/:name", component: PlantPageComponent},

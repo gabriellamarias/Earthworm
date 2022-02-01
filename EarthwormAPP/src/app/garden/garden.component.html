@@ -1,46 +1,11 @@
-<!-- <div class="cards ; row row-cols-1 row-cols-md-4 g-4">
-
-    <div *ngFor="let g of gardens" class="card; shadow p-3 mb-5 bg-white rounded" style="width: 18rem;">
-        <p>{{g.gardenName}}</p>
-        <p>{{g.plantName}}</p> -->
-    <!-- <img src="{{p.openfarm_data.attributes.main_image_path}}" class="card-img-top" alt="Photo not Available">
-        <div class="card-body">
-          <h5 class="card-title">{{ p.name }}</h5>
-          <p class="card-text">{{ p.en_wikipedia_url }}</p>
-          <a href="#" class="btn btn-primary">details</a>
-        </div>
-      </div> -->
-    <!-- </div> -->
-    <!-- <body style="background-color:rgb(77, 100, 61);text-align:center">
-      <div [hidden]="submitted">
-      <h1 class = "h1">sign in</h1>
-    <div class = "container" >
-      <div class="form-group"> 
-        <input class="form-control" type="text" placeholder="username" aria-label="username" [(ngModel)]="username">
-    <br>
-      </div>
-    <button type="button" class="btn btn-success" (click)="addUserGardens(username)">enter</button>
-  </div>
-
-  <div [hidden]="!submitted">
-    <div class="d-flex flex-column align-items-center">
-      <h3>Garden from {{ username }}'s garden list</h3>
-      <p *ngFor="let garden of gardens"> Name: {{ garden.gardenName }} Name: {{ garden.plantName }}         
-      </p>
-  </div> 
-    </div>
-    </div>
-    </body> -->
-
-    <!-- <button (click)="deleteFavorite(event.id)">Delete</button> -->
-
-    <html>
+<html>
     <body style="background-color:rgb(77, 100, 61);text-align:center">
 <div class = "container">
 <div [hidden]="submitted">
 <form (ngSubmit)="addUserGardens(username)" #gardenForm="ngForm">
   <div class="form-group">
     <label class="formtitle" for="username">username</label>
+    <p>enter the gardeners username for the gardens youd like to see</p>
     <input type="text" class="form-control" id="username"
            required
            [(ngModel)]="username" name="username"
@@ -58,7 +23,7 @@
 <div [hidden]="!submitted">
   <p class="formtitle"> {{ username }}'s gardens </p>
   <div class="row">
-    <div class="col-xs-9" *ngFor="let garden of gardens"> {{ garden.gardenName }} </div>
+    <a href="{{ linkToGarden }}" class="btn btn-outline-light" (click)= goToGarden(garden.gardenName) *ngFor="let garden of gardens"> {{ garden.gardenName }}</a>
   </div>
   <br>
   <button class="btn btn-success" (click)="submitted=false">search a different gardener</button>

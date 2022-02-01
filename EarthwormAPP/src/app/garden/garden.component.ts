@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Garden } from '../models/garden';
 import { GardenApiService } from '../services/garden-api.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-garden',
@@ -11,10 +12,11 @@ export class GardenComponent implements OnInit {
   gardens: Garden[] = []
   username: string = '';
   submitted = false;
-
+  linkToGarden: string = `#`;
 
   constructor(
-    private gardenSVC: GardenApiService
+    private gardenSVC: GardenApiService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -40,4 +42,9 @@ export class GardenComponent implements OnInit {
     })
 
   }
+
+  goToGarden(gardenName: string) {
+    this.linkToGarden = `/garden/${gardenName}`;
+  }
+
 }
