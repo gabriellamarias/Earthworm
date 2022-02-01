@@ -28,6 +28,47 @@ namespace EarthwormAPI.Controllers
             return await _context.garden.ToListAsync();
         }
 
+        [HttpGet]
+        [Route("ViewGarden")]
+        public async Task<IActionResult> ViewGardens(string userinput)
+        {
+            //var userinput = "";
+            var userGardens = new List<garden>();
+            var gardens = await _context.garden.ToListAsync();
+            foreach (garden g in gardens)
+            {
+                if (g.username == userinput)
+                {
+                    userGardens.Add(g);
+                }
+                
+
+            }
+
+            //var gardeners = await _context.gardener.ToListAsync();
+            //var gardenUsername = new List<string>();
+            //var gardenerGardens = new List<garden>();
+
+            //foreach (gardener e in gardeners)
+            //{
+            //    gardenUsername.Add(e.username);
+            //}
+            //var gardenerUsername = gardens.Intersect(gardenUsername);
+
+            //foreach (string username in gardenerUsername)
+            //{
+            //    var selectGarden = await _context.garden
+            //.FirstOrDefaultAsync(m => m.EventID == id);
+            //    favEvents.Add(selectEvent);
+            //}
+
+            var result = new OkObjectResult(userGardens);
+
+            return result;
+
+        }
+
+
         [HttpPost]
         
         public async Task<IActionResult> CreateGarden([Bind("gardenName,plantName")] garden garden)

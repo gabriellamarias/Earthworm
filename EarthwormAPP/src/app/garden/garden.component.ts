@@ -11,6 +11,7 @@ export class GardenComponent implements OnInit {
   gardens: Garden[] = []
   username: string = '';
 
+
   constructor(
     private gardenSVC: GardenApiService
   ) { }
@@ -21,6 +22,16 @@ export class GardenComponent implements OnInit {
 
   addDefaultGardens() {
     this.gardenSVC.getGardens().subscribe((gardens) => {
+      console.log("[INFO]")
+        console.log(gardens);
+        this.gardens = gardens
+    })
+
+  }
+
+  addUserGardens(username: string) {
+    username = this.username
+    this.gardenSVC.getUserGardens(username).subscribe((gardens) => {
       console.log("[INFO]")
         console.log(gardens);
         this.gardens = gardens
