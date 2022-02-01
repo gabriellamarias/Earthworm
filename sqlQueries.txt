@@ -3,7 +3,8 @@ create database PlantDB;
 create table garden (
 id int identity(1,1) primary key,
 gardenName nvarchar (255), 
-plantName nvarchar (255)
+plantName nvarchar (255),
+username nvarchar (255)
 );
 
 create table gardener (
