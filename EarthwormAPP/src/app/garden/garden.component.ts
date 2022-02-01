@@ -14,6 +14,8 @@ export class GardenComponent implements OnInit {
   submitted = false;
   linkToGarden: string = `#`;
 
+  gardenString: string[] = [];
+
   constructor(
     private gardenSVC: GardenApiService,
     private router: Router
@@ -41,6 +43,16 @@ export class GardenComponent implements OnInit {
         this.gardens = gardens
     })
 
+  }
+
+  addUserGardens2(username: string) {
+    username = this.username;
+    this.submitted = true;
+    this.gardenSVC.getUserGardens2(username).subscribe((gardenString) => {
+      console.log("[INFO]")
+      console.log(gardenString);
+      this.gardenString = gardenString;
+    })
   }
 
   goToGarden(gardenName: string) {

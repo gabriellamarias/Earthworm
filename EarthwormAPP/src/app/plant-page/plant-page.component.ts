@@ -19,11 +19,6 @@ name: string = "";
 id: number = 0;
 gardenName: string = "";
 plantName: string = "";
-
-
-
-
-
   constructor(
     private plantAPISvc: PlantApiService,
     private gardenAPISvc: GardenApiService,

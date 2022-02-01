@@ -1,11 +1,53 @@
-.choice{
+.card {
+    width: 100%;
+    top: 50px;
+    margin: 0 auto;
+    float: none; 
+    margin-bottom: 10px;
+    z-index: 1;
+}
+
+.card-title {
+    font-size: 24px;
     font-family: Fredericka the Great;
-    font-size: 30px;
     color: whitesmoke;
 }
 
-.card {
-    margin: 0 auto; /* Added */
-    float: none; /* Added */
-    margin-bottom: 10px; /* Added */
+.header {
+    font-size: 50px;
+    font-family: Fredericka the Great;
+    color: whitesmoke;
+
+}
+
+.card-body{
+    background-color: rgb(77, 100, 61);
+    min-height: 200px;
+}
+
+.card-text{
+    font-size: 12px;
+    font-family: Fredericka the Great;
+    color: whitesmoke;
+}
+
+.btn {
+
+    font-size: 14px;
+    color: whitesmoke;
+    font-family: IM Fell English SC;
+
+}
+
+.link{
+    font-size: 19px;
+    font-family: IM Fell English SC;
+    color: whitesmoke;
+
+}
+
+.plant-image{
+    font-size: 14px;
+    font-family: IM Fell English SC;
+    color: black;
 }

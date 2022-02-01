@@ -29,43 +29,29 @@ namespace EarthwormAPI.Controllers
         }
 
         [HttpGet]
-        [Route("ViewGarden")]
+        [Route("ViewGardens")]
         public async Task<IActionResult> ViewGardens(string userinput)
         {
             //var userinput = "";
-            var userGardens = new List<garden>();
+            var userGardens = new List<string>();
             var gardens = await _context.garden.ToListAsync();
+            var userGardensCompare = new List<string>();
+
             foreach (garden g in gardens)
             {
                 if (g.username == userinput)
                 {
-                    userGardens.Add(g);
-                }
-                
-
+                    userGardens.Add(g.gardenName);
+                    userGardensCompare.Add(g.gardenName);
+                }       
             }
 
-            //var gardeners = await _context.gardener.ToListAsync();
-            //var gardenUsername = new List<string>();
-            //var gardenerGardens = new List<garden>();
+            var userGardensSuccinct = userGardens.Intersect(userGardensCompare);
 
-            //foreach (gardener e in gardeners)
-            //{
-            //    gardenUsername.Add(e.username);
-            //}
-            //var gardenerUsername = gardens.Intersect(gardenUsername);
 
-            //foreach (string username in gardenerUsername)
-            //{
-            //    var selectGarden = await _context.garden
-            //.FirstOrDefaultAsync(m => m.EventID == id);
-            //    favEvents.Add(selectEvent);
-            //}
-
-            var result = new OkObjectResult(userGardens);
+            var result = new OkObjectResult(userGardensSuccinct);
 
             return result;
-
         }
 
 
@@ -99,17 +85,23 @@ namespace EarthwormAPI.Controllers
         }
 
         // GET: api/garden/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<garden>> Getgarden(int id)
+        [HttpGet("getgarden")]
+        public async Task<ActionResult<garden>> Getgarden(string name)
         {
-            var garden = await _context.garden.FindAsync(id);
+            var gardens = await _context.garden.ToListAsync();
+            var joinedGardens = new List<string>();
 
-            if (garden == null)
+           foreach (garden g in gardens)
             {
-                return NotFound();
+                if(g.gardenName == name)
+                {
+                    joinedGardens.Add(g.plantName);
+                }
             }
 
-            return garden;
+            var result = new OkObjectResult(joinedGardens);
+
+            return result;
         }
 
         // PUT: api/garden/5

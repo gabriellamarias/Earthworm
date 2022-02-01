@@ -2,7 +2,7 @@
     <body style="background-color:rgb(77, 100, 61);text-align:center">
 <div class = "container">
 <div [hidden]="submitted">
-<form (ngSubmit)="addUserGardens(username)" #gardenForm="ngForm">
+<form (ngSubmit)="addUserGardens2(username)" #gardenForm="ngForm">
   <div class="form-group">
     <label class="formtitle" for="username">username</label>
     <p>enter the gardeners username for the gardens youd like to see</p>
@@ -23,7 +23,7 @@
 <div [hidden]="!submitted">
   <p class="formtitle"> {{ username }}'s gardens </p>
   <div class="row">
-    <a href="{{ linkToGarden }}" class="btn btn-outline-light" (click)= goToGarden(garden.gardenName) *ngFor="let garden of gardens"> {{ garden.gardenName }}</a>
+    <a href="{{ linkToGarden }}" class="btn btn-outline-light" (click)= goToGarden(string) *ngFor="let string of gardenString"> {{ string }}</a>
   </div>
   <br>
   <button class="btn btn-success" (click)="submitted=false">search a different gardener</button>

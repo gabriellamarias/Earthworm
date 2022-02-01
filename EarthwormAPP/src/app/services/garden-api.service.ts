@@ -29,7 +29,15 @@ export class GardenApiService {
   }
 
   getUserGardens(username: string): Observable<Garden[]> {
-    return this.httpClient.get<Garden[]>(`https://localhost:44311/api/garden/ViewGarden?userinput=${ username }`)
+    return this.httpClient.get<Garden[]>(`https://localhost:44311/api/garden/ViewGardens?userinput=${ username }`)
+  }
+
+  getUserGardens2(username: string): Observable<string[]> {
+    return this.httpClient.get<string[]>(`https://localhost:44311/api/garden/ViewGardens?userinput=${ username }`)
+  }
+
+  getFullGarden(gardenName: string): Observable<string[]> {
+    return this.httpClient.get<string[]>(`https://localhost:44311/api/garden/getgarden?name=${ gardenName}`)
   }
 
 

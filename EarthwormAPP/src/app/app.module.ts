@@ -14,6 +14,7 @@ import { PlantPreviewComponent } from './plant-preview/plant-preview.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { GardenPageComponent } from './garden-page/garden-page.component';
 import { CreateGardenComponent } from './create-garden/create-garden.component';
+import { GardenCenterComponent } from './garden-center/garden-center.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { CreateGardenComponent } from './create-garden/create-garden.component';
     PlantPreviewComponent,
     HomePageComponent,
     GardenPageComponent,
-    CreateGardenComponent
+    CreateGardenComponent,
+    GardenCenterComponent
   ],
   imports: [
     BrowserModule,
