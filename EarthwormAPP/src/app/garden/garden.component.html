@@ -11,22 +11,55 @@
         </div>
       </div> -->
     <!-- </div> -->
-    <body style="background-color:rgb(77, 100, 61);text-align:center">
-    <h1>sign in</h1>
+    <!-- <body style="background-color:rgb(77, 100, 61);text-align:center">
+      <div [hidden]="submitted">
+      <h1 class = "h1">sign in</h1>
     <div class = "container" >
       <div class="form-group"> 
         <input class="form-control" type="text" placeholder="username" aria-label="username" [(ngModel)]="username">
     <br>
       </div>
     <button type="button" class="btn btn-success" (click)="addUserGardens(username)">enter</button>
+  </div>
+
+  <div [hidden]="!submitted">
     <div class="d-flex flex-column align-items-center">
       <h3>Garden from {{ username }}'s garden list</h3>
       <p *ngFor="let garden of gardens"> Name: {{ garden.gardenName }} Name: {{ garden.plantName }}         
       </p>
   </div> 
     </div>
-    </body>
+    </div>
+    </body> -->
 
     <!-- <button (click)="deleteFavorite(event.id)">Delete</button> -->
 
-    
+    <html>
+    <body style="background-color:rgb(77, 100, 61);text-align:center">
+<div class = "container">
+<div [hidden]="submitted">
+<form (ngSubmit)="addUserGardens(username)" #gardenForm="ngForm">
+  <div class="form-group">
+    <label class="formtitle" for="username">username</label>
+    <input type="text" class="form-control" id="username"
+           required
+           [(ngModel)]="username" name="username"
+           #name="ngModel">
+           <div [hidden]="name.valid || name.pristine"
+       class="alert alert-danger">
+    username is required
+  </div>
+  </div>
+
+<button type="submit" class="btn btn-success" [disabled]="!gardenForm.form.valid" >submit</button>
+</form>
+</div>
+
+<div [hidden]="!submitted">
+  <p class="formtitle"> {{ username }}'s gardens </p>
+  <div class="row">
+    <div class="col-xs-9" *ngFor="let garden of gardens"> {{ garden.gardenName }} </div>
+  </div>
+  <br>
+  <button class="btn btn-success" (click)="submitted=false">search a different gardener</button>
+</div>

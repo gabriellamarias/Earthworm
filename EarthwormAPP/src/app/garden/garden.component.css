@@ -2,16 +2,16 @@
     size: 100%;
 }
 
-.h1{
+.formtitle{
     font-family: Fredericka the Great;
-    font-size: 18px;
+    font-size: 30px;
     color: whitesmoke;
 }
 
 
 .container {
     font-family: IM Fell English SC;
-    font-size: 14px;
+    font-size: 18px;
     /* width: 500px;
     height: 200px;
     margin-left: 600px;
@@ -20,5 +20,6 @@
     margin: 0 auto;
     float: none; 
     margin-bottom: 10px;
+    color: whitesmoke;
   }
 

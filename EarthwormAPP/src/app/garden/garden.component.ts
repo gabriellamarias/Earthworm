@@ -10,6 +10,7 @@ import { GardenApiService } from '../services/garden-api.service';
 export class GardenComponent implements OnInit {
   gardens: Garden[] = []
   username: string = '';
+  submitted = false;
 
 
   constructor(
@@ -31,6 +32,7 @@ export class GardenComponent implements OnInit {
 
   addUserGardens(username: string) {
     username = this.username
+    this.submitted = true;
     this.gardenSVC.getUserGardens(username).subscribe((gardens) => {
       console.log("[INFO]")
         console.log(gardens);
@@ -38,8 +40,4 @@ export class GardenComponent implements OnInit {
     })
 
   }
-  
-    enterUsername() {
-  let username = this.username;
-}
 }
