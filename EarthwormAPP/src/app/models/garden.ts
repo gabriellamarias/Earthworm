@@ -2,6 +2,7 @@ export class Garden {
         constructor(
             public gardenName: string,
             public plantName: string,
-            public id?: number,
+            public username: string,
+            public id?: number
             ){}
         }

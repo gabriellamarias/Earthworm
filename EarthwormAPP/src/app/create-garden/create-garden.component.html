@@ -4,6 +4,17 @@
 <div [hidden]="submitted">
     <p class="title">add a garden</p>
 <form (ngSubmit)="onSubmit()" #gardenForm="ngForm">
+  <div class="form-group">
+    <label class="formtitle" for="username">username</label>
+    <input type="text" class="form-control" id="username"
+           required
+           [(ngModel)]="model.username" name="username"
+           #name="ngModel">
+           <div [hidden]="name.valid || name.pristine"
+       class="alert alert-danger">
+    username is required
+  </div>
+  </div>
 <div class="form-group">
   <label class="formtitle" for="name">garden name</label>
   <input type="text" class="form-control" id="name"
@@ -24,11 +35,11 @@
 
 
 <div [hidden]="!submitted">
-    <p class="font-effect-anaglyph">garden added!</p>
+    <p class="formtitle">garden added!</p>
     <div class="row">
       <div class="col-xs-3">garden name:</div>
       <div class="col-xs-9">{{ model.gardenName }}</div>
     </div>
     <br>
-    <button class="btn btn-outline-success" (click)="submitted=false">grow another garden</button>
+    <button class="btn btn-success" (click)="submitted=false">grow another garden</button>
   </div>

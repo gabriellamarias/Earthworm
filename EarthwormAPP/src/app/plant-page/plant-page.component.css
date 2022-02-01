@@ -19,14 +19,15 @@
 }
 
 .card-text{
-    font-size: 15px;
+    font-size: 18px;
     font-family: IM Fell English SC;
     color: whitesmoke;
+    
 }
 
 .btn {
 
-    font-size: 14px;
+    font-size: 16px;
     font-family: IM Fell English SC;
 
 }
@@ -35,4 +36,22 @@
     min-height: 100%
 }
 
+.container {
+    font-family: IM Fell English SC;
+    font-size: 14px;
+    /* width: 500px;
+    height: 200px;
+    margin-left: 600px;
+    margin-top: 50px; */
+    width: 20%;
+    margin: 0 auto;
+    float: none; 
+    margin-bottom: 10px;
+  }
+
+  .plant-image{
+    font-size: 16px;
+    font-family: IM Fell English SC;
+    color: whitesmoke;
+}
 

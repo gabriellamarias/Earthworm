@@ -1,0 +1,24 @@
+.body{
+    size: 100%;
+}
+
+.h1{
+    font-family: Fredericka the Great;
+    font-size: 18px;
+    color: whitesmoke;
+}
+
+
+.container {
+    font-family: IM Fell English SC;
+    font-size: 14px;
+    /* width: 500px;
+    height: 200px;
+    margin-left: 600px;
+    margin-top: 50px; */
+    width: 20%;
+    margin: 0 auto;
+    float: none; 
+    margin-bottom: 10px;
+  }
+

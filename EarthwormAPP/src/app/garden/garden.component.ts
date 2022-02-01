@@ -9,6 +9,7 @@ import { GardenApiService } from '../services/garden-api.service';
 })
 export class GardenComponent implements OnInit {
   gardens: Garden[] = []
+  username: string = '';
 
   constructor(
     private gardenSVC: GardenApiService
@@ -25,4 +26,9 @@ export class GardenComponent implements OnInit {
         this.gardens = gardens
     })
 
-}}
+  }
+  
+    enterUsername() {
+  let username = this.username;
+}
+}

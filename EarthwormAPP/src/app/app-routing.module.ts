@@ -8,7 +8,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { CreateGardenComponent } from './create-garden/create-garden.component';
 
 const routes: Routes = [
-  { path: "garden", component: GardenComponent},
+  { path: "garden-center", component: GardenComponent},
   { path: "create-garden", component: CreateGardenComponent},
   { path: "gardener", component: GardenerComponent},
   { path: "plant/:name", component: PlantPageComponent},

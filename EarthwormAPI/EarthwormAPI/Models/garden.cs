@@ -10,5 +10,6 @@ namespace EarthwormAPI.Models
         public int id { get; set; }
         public string gardenName { get; set; }
         public string plantName { get; set; }
+        public string username { get; set; }
     }
 }

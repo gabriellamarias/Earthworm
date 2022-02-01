@@ -1,8 +1,8 @@
-<div class="cards ; row row-cols-1 row-cols-md-4 g-4">
+<!-- <div class="cards ; row row-cols-1 row-cols-md-4 g-4">
 
     <div *ngFor="let g of gardens" class="card; shadow p-3 mb-5 bg-white rounded" style="width: 18rem;">
         <p>{{g.gardenName}}</p>
-        <p>{{g.plantName}}</p>
+        <p>{{g.plantName}}</p> -->
     <!-- <img src="{{p.openfarm_data.attributes.main_image_path}}" class="card-img-top" alt="Photo not Available">
         <div class="card-body">
           <h5 class="card-title">{{ p.name }}</h5>
@@ -10,4 +10,14 @@
           <a href="#" class="btn btn-primary">details</a>
         </div>
       </div> -->
+    <!-- </div> -->
+    <body style="background-color:rgb(77, 100, 61);text-align:center">
+    <h1>sign in</h1>
+    <div class = "container" >
+      <div class="form-group"> 
+        <input class="form-control" type="text" placeholder="username" aria-label="username" [(ngModel)]="username">
+    <br>
+      </div>
+    <button type="button" class="btn btn-success" (click)="enterUsername()">enter</button>
     </div>
+    </body>

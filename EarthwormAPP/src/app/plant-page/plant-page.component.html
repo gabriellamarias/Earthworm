@@ -15,14 +15,17 @@
       <p class="card-text">sowing method: {{ plant.openfarm_data.attributes.sowing_method }}</p>
       <p class="card-text">sun requirements: {{ plant.openfarm_data.attributes.sun_requirements }}</p>
       <p class="card-text">growing degree days: {{ plant.openfarm_data.attributes.growing_degree_days }}</p>
-      
-      <div class="form-group"> 
+
+      <div class = "container">
+      <!-- <div class="form-group"> 
         <input class="form-control" type="text" placeholder="enter garden name" aria-label="Garden Name" [(ngModel)]="gardenName">
-    </div>
-    <button type="button" class="btn btn-success" (click)="addToGarden()">add to garden</button>
+    <br>
+      </div>
+    <button type="button" class="btn btn-success" (click)="addToGarden()">add to garden</button> -->
     <br>
     <br>
     <a href="/create-garden" class="btn btn-success">create garden</a>
+  </div>
   
     </div>
     </div>

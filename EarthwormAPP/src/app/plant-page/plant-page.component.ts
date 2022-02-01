@@ -49,10 +49,10 @@ plantName: string = "";
 
 }
 
-addToGarden() {
-  let garden = new Garden(this.gardenName, this.plant.name)
-  this.gardenAPISvc.createGarden(garden).subscribe((garden) => {})
-}
+// addToGarden() {
+//   let garden = new Garden(this.gardenName, this.plant.name)
+//   this.gardenAPISvc.createGarden(garden).subscribe((garden) => {})
+// }
 
 
 
