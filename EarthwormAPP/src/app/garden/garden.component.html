@@ -18,6 +18,15 @@
         <input class="form-control" type="text" placeholder="username" aria-label="username" [(ngModel)]="username">
     <br>
       </div>
-    <button type="button" class="btn btn-success" (click)="enterUsername()">enter</button>
+    <button type="button" class="btn btn-success" (click)="addUserGardens(username)">enter</button>
+    <div class="d-flex flex-column align-items-center">
+      <h3>Garden from {{ username }}'s garden list</h3>
+      <p *ngFor="let garden of gardens"> Name: {{ garden.gardenName }} Name: {{ garden.plantName }}         
+      </p>
+  </div> 
     </div>
     </body>
+
+    <!-- <button (click)="deleteFavorite(event.id)">Delete</button> -->
+
+    

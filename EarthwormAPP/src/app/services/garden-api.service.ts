@@ -28,5 +28,9 @@ export class GardenApiService {
     return this.httpClient.delete(`https://localhost:44311/api/garden?ID=${ id }`)
   }
 
+  getUserGardens(username: string): Observable<Garden[]> {
+    return this.httpClient.get<Garden[]>(`https://localhost:44311/api/garden/ViewGarden?userinput=${ username }`)
+  }
+
 
 }
