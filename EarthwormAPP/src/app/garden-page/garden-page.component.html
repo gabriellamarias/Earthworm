@@ -36,7 +36,7 @@
           <a href="/plant/{{plant.name}}" class="btn btn-success">details</a>
           <br>
           <br>
-          <a href="/plant/{{plant.name}}" class="btn btn-outline-danger">remove plant from garden</a>
+          <!-- <button class="btn btn-outline-danger" (click)="removePlant()">remove plant from garden</button> -->
         </div>
       </div>
     </div>
@@ -48,11 +48,14 @@
 
 </div>
 <div [hidden]="!updated">
-  <h5 class="header"> {{ name }} </h5>
   <form>
-    <label for="fname">Rename {{ name }} to:</label><br>
-    <input type="text" id="newname" name="newname" ><br>
-    <button class="btn btn-outline-success" (click)="updateGarden(newname)">rename {{name}}</button>
+    <label for="fname" class= "fname">Rename {{ name }} to:</label><br>
+    <br>
+    <input #newname class= "input" type="text" id="newname" name="newname" ><br>
+    <br>
+    <button class="btn btn-outline-success" (click)="updateGarden(newname.value)">rename {{name}}</button>
+    <br>
+    <button class="btn btn-outline-success" (click)="goBack()">go back</button>
   </form>
 
   

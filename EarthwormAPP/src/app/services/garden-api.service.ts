@@ -29,14 +29,18 @@ export class GardenApiService {
   }
 
   updateGarden( gardenName: string, garden:gardenCRUD): Observable<any> {
-    return this.httpClient.put(`https://localhost:44311/api/garden/updategarden?gardenname=${ gardenName }`, garden)
+    return this.httpClient.patch(`https://localhost:44311/api/garden/updategarden?gardenname=${ gardenName }`, garden)
   }
 
   deleteGarden(gardenName: string, garden: gardenCRUD): Observable<unknown> {
     return this.httpClient.put<gardenCRUD>(`https://localhost:44311/api/garden/deletegarden?gardenname=${ gardenName }`, garden)
   }
+
+  deletePlant(gardenName: string, plantName: string, garden: gardenCRUD): Observable<any> {
+    return this.httpClient.patch(`https://localhost:44311/api/garden/deleteplant?gardenname=${ gardenName }&plantname=${ gardenName }`, garden)
+  }
   
-  
+
 
 }
 

@@ -51,3 +51,20 @@
     font-family: Roboto Mono;
     color: black;
 }
+
+.fname {
+    font-family: Playfair Display SC;
+    font-size: 30px;
+    text-align: center;
+    letter-spacing: 3px;
+    color: whitesmoke;
+      
+  }
+
+.input{
+        font-family: Roboto Mono;
+    font-size: 14px;
+    color: black;
+    weight: bold;
+    
+}

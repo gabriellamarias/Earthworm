@@ -25,6 +25,9 @@ namespace EarthwormAPI.Controllers
         [Route("getgarden")]
         public async Task<ActionResult<garden>> GetGarden([FromQuery] string gardenname, [FromQuery] string username)
         {
+            gardenname.ToLower();
+            username.ToLower();
+
             var gardens = await _context.garden.ToListAsync();
             var joinedGardens = new List<string>();
 
@@ -69,7 +72,8 @@ namespace EarthwormAPI.Controllers
         [Route("addgarden")]
         public async Task<IActionResult> AddGarden([Bind("gardenName,plantName,username")] garden garden)
         {
-
+            garden.gardenName.ToLower();
+            garden.username.ToLower();
 
             await _context.AddAsync(garden);
             await _context.SaveChangesAsync();
@@ -83,6 +87,9 @@ namespace EarthwormAPI.Controllers
         [Route("deletegarden")]
         public async Task<ActionResult<garden>> DeleteGarden(string gardenName, [Bind("gardenName, username")] gardenCRUD gardenDelete)
         {
+            gardenDelete.gardenName.ToLower();
+            gardenDelete.username.ToLower();
+
             var gardens = await _context.garden.ToListAsync();
             foreach (garden g in gardens)
             {
@@ -103,6 +110,8 @@ namespace EarthwormAPI.Controllers
         [Route("updategarden")]
         public async Task<IActionResult> UpdateGarden(string gardenName, [Bind("gardenName, username")] gardenCRUD gardenUpdate)
         {
+            gardenUpdate.gardenName.ToLower();
+
             var gardens = await _context.garden.ToListAsync();
             foreach (garden g in gardens)
             {
@@ -111,6 +120,36 @@ namespace EarthwormAPI.Controllers
                     g.gardenName = gardenUpdate.gardenName;
                 }
             }
+
+            await _context.SaveChangesAsync();
+
+            var result = new OkObjectResult(await _context.garden.ToListAsync());
+
+            return result;
+        }
+
+        [HttpPatch("{gardenname}/{plantname}")]
+        [Route("deleteplant")]
+        public async Task<IActionResult> DeletePlant([FromQuery]string gardenName, [FromQuery]string plantName, [Bind("gardenName, username")] gardenCRUD gardenPlantDelete)
+        {
+            gardenName.ToLower();
+            gardenPlantDelete.username.ToLower();
+            int gardenID = 0;
+
+            var gardens = await _context.garden.ToListAsync();
+
+            foreach (garden g in gardens)
+            {
+                if (g.gardenName == gardenName && g.username == gardenPlantDelete.username && g.plantName == plantName)
+                {
+                    gardenID = g.id;
+                    
+                }
+            }
+
+            var deletePlant = await _context.garden.FirstOrDefaultAsync(m => m.id == gardenID);
+
+            _context.Remove(deletePlant);
 
             await _context.SaveChangesAsync();
 

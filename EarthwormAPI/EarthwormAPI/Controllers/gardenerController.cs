@@ -32,14 +32,13 @@ namespace EarthwormAPI.Controllers
 
         public async Task<IActionResult> CreateGardener([Bind("username,gardenId")] gardener gardener)
         {
-
+            gardener.username.ToLower();
 
             await _context.AddAsync(gardener);
             await _context.SaveChangesAsync();
 
             var result = new OkObjectResult(gardener);
             return result;
-
         }
 
         [HttpDelete]

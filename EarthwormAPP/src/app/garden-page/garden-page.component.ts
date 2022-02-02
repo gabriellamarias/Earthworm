@@ -20,10 +20,7 @@ export class GardenPageComponent implements OnInit {
   deleted = false;
   updated = false;
   newname : string = "";
-
-  // plant: Plant = {openfarm_data:{attributes: {description: "", row_spacing:0, spread:0, height: 0, sowing_method: "",
-  // sun_requirements: "", growing_degree_days: 0, main_image_path: ""}}, name: "", en_wikipedia_url:"", perennial: "",
-  // median_lifespan: 0, median_days_to_first_harvest: 0, median_days_to_last_harvest: 0};
+  plantName: string = "";
 
   constructor(
     private gardenAPISvc: GardenApiService,
@@ -67,14 +64,25 @@ export class GardenPageComponent implements OnInit {
   }
 
   updateGarden(newname2: string){
-    this.name = newname2;
+    this.newname = newname2;
+    this.userGarden = {gardenName:this.newname, username: this.username}
     this.gardenAPISvc.updateGarden(this.name, this.userGarden).subscribe();
+    this.name = newname2;
     this.updated = false;
     this.deleted = false;
     
   }
 
-  removePant(){
+  goBack() {
+    this.updated = false;
+    this.deleted = false;
+  }
+
+  removePlant(plantname2: string){
+    this.plantName = plantname2;
+    this.gardenAPISvc.deletePlant(this.name, this.plantName, this.userGarden).subscribe();
+    this.updated = false;
+    this.deleted = false;
 
   }
 
