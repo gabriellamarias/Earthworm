@@ -12,7 +12,7 @@
   }
   
   .container {
-    font-family: IM Fell English SC;
+    font-family: Roboto Mono;
     font-size: 14px;
     /* width: 500px;
     height: 200px;
@@ -25,7 +25,7 @@
   }
 
   .col-xs-3 {
-    font-family: Fredericka the Great;
+    font-family: Playfair Display SC;
     font-size: 30px;
     text-align: center;
     letter-spacing: 3px;
@@ -34,29 +34,29 @@
   }
 
   .col-xs-9 {
-    font-family: IM Fell English SC;
+    font-family: Roboto Mono;
     font-size: 14px;
     color: whitesmoke;
 
   }
 
   .formtitle{
-    font-family: IM Fell English SC;
-    font-size: 20px;
+    font-family: Roboto Mono;
+    font-size: 15px;
     text-align: center;
     color: whitesmoke;
     letter-spacing: 3px;
   }
 
   .formtitledate{
-    font-family: Fredericka the Great;
+    font-family: Playfair Display SC;
     font-size: 25px;
     text-align: center;
     letter-spacing: 3px;
   }
 
   p.title {
-    font-family: Fredericka the Great;
+    font-family: Playfair Display SC;
     color: whitesmoke;
     font-size: 30px;
     text-align: center;
@@ -66,6 +66,6 @@
 .btn {
 
   font-size: 14px;
-  font-family: IM Fell English SC;
+  font-family: Roboto Mono;
 
 }

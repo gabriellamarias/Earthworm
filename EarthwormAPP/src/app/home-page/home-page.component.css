@@ -1,0 +1,23 @@
+.top-right{
+    font-family: Playfair Display SC;
+    font-size: 80px;
+    text-align: right;
+    letter-spacing: 3px;
+    position: absolute;
+    top: 390px;
+    right: 190px;
+    color: whitesmoke;
+    text-shadow: 2px 2px rgb(0, 0, 0);
+}
+
+.dirt {
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+/* .container {
+    position: relative;
+    text-align: center;
+    color: rgb(77, 100, 61);
+  } */

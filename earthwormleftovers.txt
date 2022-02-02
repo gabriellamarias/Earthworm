@@ -1,0 +1,20 @@
+Leftover Stuff for Earthworm
+
+Needs
+-Delete plant from garden
+-Edit garden
+-Delete garden
+-Drop down to add to garden
+
+Not Need but Easy
+-Find new small font
+-Edit username
+-Add username
+-Delete username
+-Gardening tips page
+
+Stretch
+-Garden description
+-Performance
+-Tooltip hovering
+-Search filters by sun

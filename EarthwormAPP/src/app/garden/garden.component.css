@@ -3,15 +3,15 @@
 }
 
 .formtitle{
-    font-family: Fredericka the Great;
+    font-family: Playfair Display SC;
     font-size: 30px;
     color: whitesmoke;
 }
 
 
 .container {
-    font-family: IM Fell English SC;
-    font-size: 18px;
+    font-family: Roboto Mono;
+    font-size: 13px;
     /* width: 500px;
     height: 200px;
     margin-left: 600px;
@@ -24,8 +24,8 @@
   }
 
   .p{
-    font-family: IM Fell English SC;
-    font-size: 15px; 
+    font-family: Roboto Mono;
+    font-size: 13px; 
     color: whitesmoke;
   }
 

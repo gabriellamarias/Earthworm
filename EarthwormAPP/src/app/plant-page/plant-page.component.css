@@ -9,7 +9,7 @@
 
 .card-title {
     font-size: 30px;
-    font-family: Fredericka the Great;
+    font-family: Playfair Display SC;
     color: whitesmoke;
 }
 
@@ -19,16 +19,19 @@
 }
 
 .card-text{
-    font-size: 18px;
-    font-family: IM Fell English SC;
-    color: whitesmoke;
+    font-size: 12px;
+    font-family: Roboto Mono;
+    color: white;
+    /* text-shadow: 2px 2px rgb(0, 0, 0); */
+    font-weight:bold;
     
 }
 
 .btn {
 
-    font-size: 16px;
-    font-family: IM Fell English SC;
+    font-size: 14px;
+    font-family: Roboto Mono;
+    font-weight:bold;
 
 }
 
@@ -37,7 +40,7 @@
 }
 
 .container {
-    font-family: IM Fell English SC;
+    font-family: Roboto Mono;
     font-size: 14px;
     /* width: 500px;
     height: 200px;
@@ -50,8 +53,8 @@
   }
 
   .plant-image{
-    font-size: 16px;
-    font-family: IM Fell English SC;
-    color: whitesmoke;
+    font-size: 12px;
+    font-family: Roboto Mono;
+    color: rgba(245, 245, 245, 0.52);
 }
 

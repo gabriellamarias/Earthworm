@@ -4,17 +4,17 @@
     <div class="card-body">
       <h5 class="card-title">{{ plant.name }}</h5>
       <img src="{{plant.openfarm_data.attributes.main_image_path}}" class="plant-image" alt="Photo not Available" width="500" height="300">
-      <p class="card-text">perennial: {{ plant.perennial }}</p>
-      <p class="card-text">median lifespan: {{ plant.median_lifespan }}</p>
-      <p class="card-text">days to first harvest: {{ plant.median_days_to_first_harvest }}</p>
-      <p class="card-text">days to last harvest: {{ plant.median_days_to_last_harvest }}</p>
+      <p class="card-text">Perennial: {{ plant.perennial }}</p>
+      <p class="card-text">Median lifespan: {{ plant.median_lifespan }} days</p>
+      <p class="card-text">Days to first harvest: {{ plant.median_days_to_first_harvest }} days</p>
+      <p class="card-text">Days to last harvest: {{ plant.median_days_to_last_harvest }} days</p>
       <p class="card-text">{{ plant.openfarm_data.attributes.description }}</p>
-      <p class="card-text">row spacing: {{ plant.openfarm_data.attributes.row_spacing }}</p>
-      <p class="card-text">spread: {{ plant.openfarm_data.attributes.spread }}</p>
-      <p class="card-text">height: {{ plant.openfarm_data.attributes.height }}</p>
-      <p class="card-text">sowing method: {{ plant.openfarm_data.attributes.sowing_method }}</p>
-      <p class="card-text">sun requirements: {{ plant.openfarm_data.attributes.sun_requirements }}</p>
-      <p class="card-text">growing degree days: {{ plant.openfarm_data.attributes.growing_degree_days }}</p>
+      <p class="card-text">Row Spacing: {{ plant.openfarm_data.attributes.row_spacing }}</p>
+      <p class="card-text">Spread: {{ plant.openfarm_data.attributes.spread }} cm</p>
+      <p class="card-text">Height: {{ plant.openfarm_data.attributes.height }} cm</p>
+      <p class="card-text">Sowing Method: {{ plant.openfarm_data.attributes.sowing_method }}</p>
+      <p class="card-text">Sun Requirements: {{ plant.openfarm_data.attributes.sun_requirements }}</p>
+      <p class="card-text">Growing Degree Days: {{ plant.openfarm_data.attributes.growing_degree_days }} days</p>
 
       <div class = "container">
       <!-- <div class="form-group"> 

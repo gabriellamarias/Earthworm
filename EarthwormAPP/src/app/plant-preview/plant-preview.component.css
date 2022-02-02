@@ -9,7 +9,7 @@
 
 .card-title {
     font-size: 24px;
-    font-family: Fredericka the Great;
+    font-family: Playfair Display SC;
     color: whitesmoke;
 }
 
@@ -20,7 +20,7 @@
 
 .card-text{
     font-size: 12px;
-    font-family: Fredericka the Great;
+    font-family: Playfair Display SC;
     color: whitesmoke;
 }
 
@@ -28,19 +28,19 @@
 
     font-size: 14px;
     color: whitesmoke;
-    font-family: IM Fell English SC;
+    font-family: Roboto Mono;
 
 }
 
 .link{
-    font-size: 19px;
-    font-family: IM Fell English SC;
+    font-size: 14px;
+    font-family: Roboto Mono;
     color: whitesmoke;
 
 }
 
 .plant-image{
     font-size: 14px;
-    font-family: IM Fell English SC;
+    font-family: Roboto Mono;
     color: black;
 }
