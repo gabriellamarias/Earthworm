@@ -70,18 +70,22 @@ namespace EarthwormAPI.Controllers
         }
 
         [HttpDelete]
-        public async Task<ActionResult<garden>> DeleteGarden(int id)
+        public async Task<ActionResult<garden>> DeleteGarden(string name, string username)
         {
-            var garden = await _context.garden.FindAsync(id);
-            if (garden == null)
+            var gardens = await _context.garden.ToListAsync();
+            foreach (garden g in gardens)
             {
-                return NotFound();
+                if(g.gardenName == name)
+                {
+                    _context.garden.Remove(g);
+                }
             }
-
-            _context.garden.Remove(garden);
+    
             await _context.SaveChangesAsync();
 
-            return new OkResult();
+            var result = new OkObjectResult(await _context.garden.ToListAsync());
+
+            return result;
         }
 
         // GET: api/garden/5
@@ -150,7 +154,25 @@ namespace EarthwormAPI.Controllers
 
         // DELETE: api/garden/5
         //[HttpDelete("{id}")]
-    
+
+        [HttpPatch]
+        [Route("EditGarden")]
+        public async Task<IActionResult> EditGarden(string oldname, string newname)
+        {
+            var gardens = await _context.garden.ToListAsync();
+
+            foreach (garden g in gardens)
+            {
+                if (g.gardenName == oldname)
+                {
+                    g.gardenName = newname;
+                    await _context.SaveChangesAsync();
+                }
+            }
+
+            var result = new OkObjectResult(await _context.garden.ToListAsync());
+            return result;
+        }
 
         private bool gardenExists(int id)
         {

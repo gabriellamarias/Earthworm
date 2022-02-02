@@ -23,9 +23,8 @@ export class GardenApiService {
     return this.httpClient.post<Garden>("https://localhost:44311/api/garden", garden)
   }
 
-
-  deleteGarden(id: number): Observable<unknown> {
-    return this.httpClient.delete(`https://localhost:44311/api/garden?ID=${ id }`)
+  deleteGarden(gardenName: string): Observable<unknown> {
+    return this.httpClient.delete(`https://localhost:44311/api/garden?name=${ gardenName }`)
   }
 
   getUserGardens(username: string): Observable<Garden[]> {
@@ -39,6 +38,10 @@ export class GardenApiService {
   getFullGarden(gardenName: string): Observable<string[]> {
     return this.httpClient.get<string[]>(`https://localhost:44311/api/garden/getgarden?name=${ gardenName}`)
   }
+
+  updateGarden( gardenName: string, oldGardenName: string): Observable<any> {
+    return this.httpClient.put(`https://localhost:44311/api/garden?name=${ gardenName }`, oldGardenName)
+}
 
 
 }

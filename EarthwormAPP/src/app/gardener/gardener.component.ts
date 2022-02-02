@@ -9,7 +9,7 @@ import { GardenerApiService } from '../services/gardener-api.service';
 })
 export class GardenerComponent implements OnInit {
   username: string = "";
-  gardener: Gardener = {username:"", gardenId: 2};
+  gardener: Gardener = {username:""};
   submitted = false;
 
   constructor(
@@ -20,7 +20,7 @@ export class GardenerComponent implements OnInit {
 
   onSubmit(){
     this.submitted = true;
-    this.gardener = {username:this.username, gardenId: 2 };
+    this.gardener = {username:this.username};
     this.gardenerSVC.createGardener(this.gardener).subscribe();
     }
 

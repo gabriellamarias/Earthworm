@@ -19,6 +19,7 @@
     <body style="background-color:rgb(77, 100, 61);text-align:center">
         <br>
         <h5 class="header">{{ name }}</h5>
+        <button class="btn btn-outline-danger" (click)="deleteGarden(name)">delete {{name}}</button>
         <div class="cards ; row row-cols-1 row-cols-md-4 g-4">
 <div *ngFor="let plant of allPlants">
 
@@ -32,7 +33,7 @@
           <a href="/plant/{{plant.name}}" class="btn btn-success">details</a>
           <br>
           <br>
-          <a href="/plant/{{plant.name}}" class="btn btn-danger">remove plant from garden</a>
+          <a href="/plant/{{plant.name}}" class="btn btn-outline-danger">remove plant from garden</a>
         </div>
       </div>
     </div>

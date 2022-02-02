@@ -9,6 +9,5 @@ namespace EarthwormAPI.Models
     {
         public int id { get; set; }
         public string username { get; set; }
-        public int gardenId { get; set; }
     }
 }

@@ -44,4 +44,9 @@ export class GardenPageComponent implements OnInit {
 
     }
   })
-}}
+  }
+  deleteGarden(name: string){
+    this.gardenAPISvc.deleteGarden(name).subscribe();
+  }
+
+}
