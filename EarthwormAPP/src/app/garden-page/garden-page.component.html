@@ -18,8 +18,11 @@
 <html>
     <body style="background-color:rgb(77, 100, 61);text-align:center">
         <br>
+        <div [hidden]="deleted">
+        <div [hidden]="updated">
         <h5 class="header">{{ name }}</h5>
-        <button class="btn btn-outline-danger" (click)="deleteGarden(name)">delete {{name}}</button>
+        <button class="btn btn-outline-danger" (click)="deleteGarden()">delete {{name}}</button>
+        <button class="btn btn-outline-success" (click)="updateButton()">rename {{name}}</button>
         <div class="cards ; row row-cols-1 row-cols-md-4 g-4">
 <div *ngFor="let plant of allPlants">
 
@@ -37,6 +40,23 @@
         </div>
       </div>
     </div>
+  </div>
+  </div>
+</div>
+<div [hidden]="!deleted">
+  <h5 class="header">{{ name }} has been deleted</h5>
+
+</div>
+<div [hidden]="!updated">
+  <h5 class="header"> {{ name }} </h5>
+  <form>
+    <label for="fname">Rename {{ name }} to:</label><br>
+    <input type="text" id="newname" name="newname" ><br>
+    <button class="btn btn-outline-success" (click)="updateGarden(newname)">rename {{name}}</button>
+  </form>
+
+  
+  
 </div>
 <br>
 <br>
@@ -44,5 +64,5 @@
 <br>
 <br>
 <br>
-    </body>
-    </html>
+<!-- </body>
+</html> -->

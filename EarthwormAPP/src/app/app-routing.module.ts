@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: "search-garden", component: GardenComponent},
   { path: "create-garden", component: CreateGardenComponent},
   { path: "gardener", component: GardenerComponent},
-  { path: "garden/:name", component: GardenPageComponent},
+  { path: "garden/:name/:username", component: GardenPageComponent},
   { path: "plant/:name", component: PlantPageComponent},
   { path: "plant-list", component: PlantListComponent},
   {path: "home", component: HomePageComponent},

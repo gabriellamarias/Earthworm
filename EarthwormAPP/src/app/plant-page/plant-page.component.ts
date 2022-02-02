@@ -57,7 +57,7 @@ submitted = false;
 addUserGardens2(username: string) {
   username = this.username;
   this.submitted = true;
-  this.gardenAPISvc.getUserGardens2(username).subscribe((gardenString) => {
+  this.gardenAPISvc.getUserGardens(username).subscribe((gardenString) => {
     console.log("[INFO]")
     console.log(gardenString);
     this.gardenNames = gardenString;

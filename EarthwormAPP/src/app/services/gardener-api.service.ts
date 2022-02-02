@@ -23,7 +23,6 @@ export class GardenerApiService {
     return this.httpClient.post<Gardener>("https://localhost:44311/api/gardener", gardener)
   }
 
-
   deleteGardener(id: number): Observable<unknown> {
     return this.httpClient.delete(`https://localhost:44311/api/gardener?ID=${ id }`)
   }

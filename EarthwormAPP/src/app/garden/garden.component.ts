@@ -24,7 +24,6 @@ export class GardenComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.addDefaultGardens();
     this.gardenerAPISvc.getGardener().subscribe((usernames) => {
       for(var i = 0; i < usernames.length; i++)
       {
@@ -33,30 +32,10 @@ export class GardenComponent implements OnInit {
     })
   }
 
-  addDefaultGardens() {
-    this.gardenSVC.getGardens().subscribe((gardens) => {
-      console.log("[INFO]")
-        console.log(gardens);
-        this.gardens = gardens
-    })
-
-  }
-
   addUserGardens(username: string) {
-    username = this.username
-    this.submitted = true;
-    this.gardenSVC.getUserGardens(username).subscribe((gardens) => {
-      console.log("[INFO]")
-        console.log(gardens);
-        this.gardens = gardens
-    })
-
-  }
-
-  addUserGardens2(username: string) {
     username = this.username;
     this.submitted = true;
-    this.gardenSVC.getUserGardens2(username).subscribe((gardenString) => {
+    this.gardenSVC.getUserGardens(username).subscribe((gardenString) => {
       console.log("[INFO]")
       console.log(gardenString);
       this.gardenString = gardenString;
@@ -64,7 +43,7 @@ export class GardenComponent implements OnInit {
   }
 
   goToGarden(gardenName: string) {
-    this.linkToGarden = `/garden/${gardenName}`;
+    this.linkToGarden = `/garden/${gardenName}/${this.username}`;
   }
 
 }

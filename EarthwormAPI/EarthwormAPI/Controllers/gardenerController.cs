@@ -102,22 +102,7 @@ namespace EarthwormAPI.Controllers
 
             return NoContent();
         }
-
-        // POST: api/gardener
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for
-        // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
-        //[HttpPost]
-        //public async Task<ActionResult<gardener>> Postgardener(gardener gardener)
-        //{
-        //    _context.gardener.Add(gardener);
-        //    await _context.SaveChangesAsync();
-
-        //    return CreatedAtAction("Getgardener", new { id = gardener.id }, gardener);
-        //}
-
-        // DELETE: api/gardener/5
     
-
         private bool gardenerExists(int id)
         {
             return _context.gardener.Any(e => e.id == id);

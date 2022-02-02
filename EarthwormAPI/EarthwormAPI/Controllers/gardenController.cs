@@ -21,83 +21,16 @@ namespace EarthwormAPI.Controllers
             _context = context;
         }
 
-        // GET: api/garden
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<garden>>> Getgarden()
-        {
-            return await _context.garden.ToListAsync();
-        }
-
-        [HttpGet]
-        [Route("ViewGardens")]
-        public async Task<IActionResult> ViewGardens(string userinput)
-        {
-            //var userinput = "";
-            var userGardens = new List<string>();
-            var gardens = await _context.garden.ToListAsync();
-            var userGardensCompare = new List<string>();
-
-            foreach (garden g in gardens)
-            {
-                if (g.username == userinput)
-                {
-                    userGardens.Add(g.gardenName);
-                    userGardensCompare.Add(g.gardenName);
-                }       
-            }
-
-            var userGardensSuccinct = userGardens.Intersect(userGardensCompare);
-
-
-            var result = new OkObjectResult(userGardensSuccinct);
-
-            return result;
-        }
-
-
-        [HttpPost]
-        
-        public async Task<IActionResult> CreateGarden([Bind("gardenName,plantName")] garden garden)
-        {
-
-            
-            await _context.AddAsync(garden);
-            await _context.SaveChangesAsync();
-
-            var result = new OkObjectResult(garden);
-            return result;
-
-        }
-
-        [HttpDelete]
-        public async Task<ActionResult<garden>> DeleteGarden(string name, string username)
-        {
-            var gardens = await _context.garden.ToListAsync();
-            foreach (garden g in gardens)
-            {
-                if(g.gardenName == name)
-                {
-                    _context.garden.Remove(g);
-                }
-            }
-    
-            await _context.SaveChangesAsync();
-
-            var result = new OkObjectResult(await _context.garden.ToListAsync());
-
-            return result;
-        }
-
-        // GET: api/garden/5
-        [HttpGet("getgarden")]
-        public async Task<ActionResult<garden>> Getgarden(string name)
+        [HttpGet("{gardenname}/{username}")]
+        [Route("getgarden")]
+        public async Task<ActionResult<garden>> GetGarden([FromQuery] string gardenname, [FromQuery] string username)
         {
             var gardens = await _context.garden.ToListAsync();
             var joinedGardens = new List<string>();
 
-           foreach (garden g in gardens)
+            foreach (garden g in gardens)
             {
-                if(g.gardenName == name)
+                if (g.gardenName == gardenname && g.username == username)
                 {
                     joinedGardens.Add(g.plantName);
                 }
@@ -108,75 +41,82 @@ namespace EarthwormAPI.Controllers
             return result;
         }
 
-        // PUT: api/garden/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for
-        // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
-        [HttpPut("{id}")]
-        public async Task<IActionResult> Putgarden(int id, garden garden)
+        [HttpGet]
+        [Route("viewgardens")]
+        public async Task<IActionResult> ViewGardens(string userinput)
         {
-            if (id != garden.id)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(garden).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!gardenExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent();
-        }
-
-        // POST: api/garden
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for
-        // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
-        //[HttpPost]
-        //public async Task<ActionResult<garden>> Postgarden(garden garden)
-        //{
-        //    _context.garden.Add(garden);
-        //    await _context.SaveChangesAsync();
-
-        //    return CreatedAtAction("Getgarden", new { id = garden.id }, garden);
-        //}
-
-        // DELETE: api/garden/5
-        //[HttpDelete("{id}")]
-
-        [HttpPatch]
-        [Route("EditGarden")]
-        public async Task<IActionResult> EditGarden(string oldname, string newname)
-        {
+            var userGardens = new List<string>();
             var gardens = await _context.garden.ToListAsync();
+            var userGardensCompare = new List<string>();
 
             foreach (garden g in gardens)
             {
-                if (g.gardenName == oldname)
+                if (g.username == userinput)
                 {
-                    g.gardenName = newname;
-                    await _context.SaveChangesAsync();
+                    userGardens.Add(g.gardenName);
+                    userGardensCompare.Add(g.gardenName);
                 }
             }
 
-            var result = new OkObjectResult(await _context.garden.ToListAsync());
+            var userGardensSuccinct = userGardens.Intersect(userGardensCompare);
+
+            var result = new OkObjectResult(userGardensSuccinct);
+
             return result;
         }
 
-        private bool gardenExists(int id)
+        [HttpPost]
+        [Route("addgarden")]
+        public async Task<IActionResult> AddGarden([Bind("gardenName,plantName,username")] garden garden)
         {
-            return _context.garden.Any(e => e.id == id);
+
+
+            await _context.AddAsync(garden);
+            await _context.SaveChangesAsync();
+
+            var result = new OkObjectResult(garden);
+            return result;
+
+        }
+
+        [HttpPut]
+        [Route("deletegarden")]
+        public async Task<ActionResult<garden>> DeleteGarden(string gardenName, [Bind("gardenName, username")] gardenCRUD gardenDelete)
+        {
+            var gardens = await _context.garden.ToListAsync();
+            foreach (garden g in gardens)
+            {
+                if (g.gardenName == gardenName & g.username == gardenDelete.username)
+                {
+                    _context.garden.Remove(g);
+                }
+            }
+
+            await _context.SaveChangesAsync();
+
+            var result = new OkObjectResult(await _context.garden.ToListAsync());
+
+            return result;
+        }
+
+        [HttpPatch]
+        [Route("updategarden")]
+        public async Task<IActionResult> UpdateGarden(string gardenName, [Bind("gardenName, username")] gardenCRUD gardenUpdate)
+        {
+            var gardens = await _context.garden.ToListAsync();
+            foreach (garden g in gardens)
+            {
+                if (g.gardenName == gardenName & g.username == gardenUpdate.username)
+                {
+                    g.gardenName = gardenUpdate.gardenName;
+                }
+            }
+
+            await _context.SaveChangesAsync();
+
+            var result = new OkObjectResult(await _context.garden.ToListAsync());
+
+            return result;
         }
     }
 }

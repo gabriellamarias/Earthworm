@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { Observable, throwError } from 'rxjs'
 import { Garden } from '../models/garden';
+import { gardenCRUD } from '../models/gardencrud';
 
 
 
@@ -15,33 +16,29 @@ export class GardenApiService {
 
   ) { }
 
-  getGardens(): Observable<Garden[]> {
-    return this.httpClient.get<Garden[]>("https://localhost:44311/api/garden")
+  getUserGardens(username: string): Observable<string[]> {
+    return this.httpClient.get<string[]>(`https://localhost:44311/api/garden/viewgardens?userinput=${ username }`)
+  }
+
+  getAllGardenPlants(gardenName: string, username:string): Observable<any> {
+    return this.httpClient.get<string[]>(`https://localhost:44311/api/garden/getgarden?gardenname=${ gardenName }&username=${ username }`)
   }
 
   createGarden(garden: Garden): Observable<Garden> {
-    return this.httpClient.post<Garden>("https://localhost:44311/api/garden", garden)
+    return this.httpClient.post<Garden>("https://localhost:44311/api/garden/addgarden", garden)
   }
 
-  deleteGarden(gardenName: string): Observable<unknown> {
-    return this.httpClient.delete(`https://localhost:44311/api/garden?name=${ gardenName }`)
+  updateGarden( gardenName: string, garden:gardenCRUD): Observable<any> {
+    return this.httpClient.put(`https://localhost:44311/api/garden/updategarden?gardenname=${ gardenName }`, garden)
   }
 
-  getUserGardens(username: string): Observable<Garden[]> {
-    return this.httpClient.get<Garden[]>(`https://localhost:44311/api/garden/ViewGardens?userinput=${ username }`)
+  deleteGarden(gardenName: string, garden: gardenCRUD): Observable<unknown> {
+    return this.httpClient.put<gardenCRUD>(`https://localhost:44311/api/garden/deletegarden?gardenname=${ gardenName }`, garden)
   }
+  
+  
 
-  getUserGardens2(username: string): Observable<string[]> {
-    return this.httpClient.get<string[]>(`https://localhost:44311/api/garden/ViewGardens?userinput=${ username }`)
-  }
-
-  getFullGarden(gardenName: string): Observable<string[]> {
-    return this.httpClient.get<string[]>(`https://localhost:44311/api/garden/getgarden?name=${ gardenName}`)
-  }
-
-  updateGarden( gardenName: string, oldGardenName: string): Observable<any> {
-    return this.httpClient.put(`https://localhost:44311/api/garden?name=${ gardenName }`, oldGardenName)
 }
 
 
-}
+
