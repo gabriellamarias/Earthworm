@@ -1,0 +1,71 @@
+.ng-valid[required], .ng-valid.required  {
+    border-left: 5px solid #42A948; /* green */
+  }
+  
+  .ng-invalid:not(form)  {
+    border-left: 5px solid rgb(182, 128, 115); /* red */
+  }
+
+  .col-xs-3 {
+      font-size: 16px;
+      
+  }
+  
+  .container {
+    font-family: Roboto Mono;
+    font-size: 14px;
+    /* width: 500px;
+    height: 200px;
+    margin-left: 600px;
+    margin-top: 50px; */
+    width: 20%;
+    margin: 0 auto;
+    float: none; 
+    margin-bottom: 10px;
+  }
+
+  .col-xs-3 {
+    font-family: Playfair Display SC;
+    font-size: 30px;
+    text-align: center;
+    letter-spacing: 3px;
+    color: whitesmoke;
+      
+  }
+
+  .col-xs-9 {
+    font-family: Roboto Mono;
+    font-size: 14px;
+    color: whitesmoke;
+
+  }
+
+  .formtitle{
+    font-family: Roboto Mono;
+    font-size: 15px;
+    text-align: center;
+    color: whitesmoke;
+    letter-spacing: 3px;
+  }
+
+  .formtitledate{
+    font-family: Playfair Display SC;
+    font-size: 25px;
+    text-align: center;
+    letter-spacing: 3px;
+  }
+
+  p.title {
+    font-family: Playfair Display SC;
+    color: whitesmoke;
+    font-size: 30px;
+    text-align: center;
+    letter-spacing: 3px;
+}
+
+.btn {
+
+  font-size: 14px;
+  font-family: Roboto Mono;
+
+}

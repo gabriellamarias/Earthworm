@@ -58,3 +58,12 @@
     color: rgba(245, 245, 245, 0.52);
 }
 
+.formtitle{
+    font-family: Roboto Mono;
+    font-size: 14px;
+    text-align: center;
+    color: whitesmoke;
+    letter-spacing: 3px;
+    font-weight: bold;
+  }
+

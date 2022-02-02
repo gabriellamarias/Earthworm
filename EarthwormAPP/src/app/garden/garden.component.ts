@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Garden } from '../models/garden';
 import { GardenApiService } from '../services/garden-api.service';
 import { Router } from '@angular/router';
+import { GardenerApiService } from '../services/gardener-api.service';
 
 @Component({
   selector: 'app-garden',
@@ -10,7 +11,8 @@ import { Router } from '@angular/router';
 })
 export class GardenComponent implements OnInit {
   gardens: Garden[] = []
-  username: string = '';
+  usernames: string[] = [];
+  username: string = "";
   submitted = false;
   linkToGarden: string = `#`;
 
@@ -18,11 +20,17 @@ export class GardenComponent implements OnInit {
 
   constructor(
     private gardenSVC: GardenApiService,
-    private router: Router
+    private gardenerAPISvc: GardenerApiService
   ) { }
 
   ngOnInit(): void {
     this.addDefaultGardens();
+    this.gardenerAPISvc.getGardener().subscribe((usernames) => {
+      for(var i = 0; i < usernames.length; i++)
+      {
+        this.usernames.push(usernames[i].username)
+      }
+    })
   }
 
   addDefaultGardens() {

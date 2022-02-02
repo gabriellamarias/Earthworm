@@ -4,12 +4,10 @@ Needs
 -Delete plant from garden
 -Edit garden
 -Delete garden
--Drop down to add to garden
+-Authentification for double username (ask for help?)
 
 Not Need but Easy
--Find new small font
 -Edit username
--Add username
 -Delete username
 -Gardening tips page
 

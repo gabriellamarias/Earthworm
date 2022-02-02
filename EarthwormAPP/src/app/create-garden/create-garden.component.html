@@ -1,20 +1,18 @@
 <html>
     <body style="background-color:rgb(77, 100, 61);text-align:center">
 <div class = "container">
-<div [hidden]="submitted">
+  <div [hidden]="submitted">
     <p class="title">grow a garden</p>
-<form (ngSubmit)="onSubmit()" #gardenForm="ngForm">
-  <div class="form-group">
-    <label class="formtitle" for="username">username</label>
-    <input type="text" class="form-control" id="username"
-           required
-           [(ngModel)]="model.username" name="username"
-           #name="ngModel">
-           <div [hidden]="name.valid || name.pristine"
-       class="alert alert-danger">
-    username is required
-  </div>
-  </div>
+  <form (ngSubmit)="onSubmit()" #gardenForm="ngForm">
+    <div class="form-group">
+      <label class="formtitle" for="power">select username</label>
+      <select class="form-control"  id="username"
+              required
+              [(ngModel)]="username" name="usernames">
+        <option *ngFor="let user of usernames" [value]="user">{{user}}</option>
+      </select>
+    </div>
+<br>
 <div class="form-group">
   <label class="formtitle" for="name">garden name</label>
   <input type="text" class="form-control" id="name"
@@ -26,10 +24,11 @@
   garden name is required
 </div>
 </div>
-
+<br>
+<br>
 <button type="submit" class="btn btn-success" [disabled]="!gardenForm.form.valid" >submit</button>
 <br>
-<button type="button" class="btn btn-danger" (click)="newGarden(); gardenForm.reset()">clear form</button>
+<br>
 </form>
 </div>
 
@@ -42,4 +41,9 @@
     </div>
     <br>
     <button class="btn btn-success" (click)="submitted=false">grow another garden</button>
+    <br>
+    <br>
+    <a href="/garden/{{model.gardenName}}"  class="btn btn-success" >go to {{model.gardenName}}</a>
+    <br>
+    <br>
   </div>

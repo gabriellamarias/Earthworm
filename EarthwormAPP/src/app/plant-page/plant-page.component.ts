@@ -4,6 +4,7 @@ import { Garden } from '../models/garden';
 import { Plant } from '../models/plant';
 import { GardenApiService } from '../services/garden-api.service';
 import { PlantApiService } from '../services/plant-api.service';
+import { GardenerApiService } from '../services/gardener-api.service';
 
 @Component({
   selector: 'app-plant-page',
@@ -16,14 +17,17 @@ sun_requirements: "", growing_degree_days: 0, main_image_path: ""}}, name: "", e
  median_lifespan: 0, median_days_to_first_harvest: 0, median_days_to_last_harvest: 0};
 
 name: string = "";
-id: number = 0;
 gardenName: string = "";
-plantName: string = "";
+gardenNames: string[] = [];
+usernames: string[] = [];
+username: string = "";
+submitted = false;
+
   constructor(
     private plantAPISvc: PlantApiService,
     private gardenAPISvc: GardenApiService,
+    private gardenerAPISvc: GardenerApiService,
     private route: ActivatedRoute,
-    private router: Router,
   ) { }
 
   ngOnInit(): void {
@@ -42,12 +46,27 @@ plantName: string = "";
     console.log(this.plant.name)
   })
 
+  this.gardenerAPISvc.getGardener().subscribe((usernames) => {
+    for(var i = 0; i < usernames.length; i++)
+    {
+      this.usernames.push(usernames[i].username)
+    }
+  })
 }
 
-// addToGarden() {
-//   let garden = new Garden(this.gardenName, this.plant.name)
-//   this.gardenAPISvc.createGarden(garden).subscribe((garden) => {})
-// }
+addUserGardens2(username: string) {
+  username = this.username;
+  this.submitted = true;
+  this.gardenAPISvc.getUserGardens2(username).subscribe((gardenString) => {
+    console.log("[INFO]")
+    console.log(gardenString);
+    this.gardenNames = gardenString;
+  })
+}
+addToGarden() {
+  let garden = new Garden(this.gardenName, this.plant.name, this.username)
+  this.gardenAPISvc.createGarden(garden).subscribe((garden) => {})
+}
 
 
 

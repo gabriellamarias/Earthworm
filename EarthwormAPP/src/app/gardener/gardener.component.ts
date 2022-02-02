@@ -8,21 +8,23 @@ import { GardenerApiService } from '../services/gardener-api.service';
   styleUrls: ['./gardener.component.css']
 })
 export class GardenerComponent implements OnInit {
-  gardener: Gardener[] = []
+  username: string = "";
+  gardener: Gardener = {username:"", gardenId: 2};
+  submitted = false;
 
   constructor(
     private gardenerSVC: GardenerApiService
   ) { }
 
-  ngOnInit(): void {
-    this.addDefaultGardener();
+  ngOnInit(): void {}
+
+  onSubmit(){
+    this.submitted = true;
+    this.gardener = {username:this.username, gardenId: 2 };
+    this.gardenerSVC.createGardener(this.gardener).subscribe();
+    }
+
   }
 
-  addDefaultGardener() {
-    this.gardenerSVC.getGardener().subscribe((gardener) => {
-      console.log("[INFO]")
-        console.log(gardener);
-        this.gardener = gardener
-    })
+
   
-  }}

@@ -5,18 +5,17 @@
 <form (ngSubmit)="addUserGardens2(username)" #gardenForm="ngForm">
   <div class="form-group">
     <label class="formtitle" for="username">username</label>
-    <p>enter the gardeners username for the gardens youd like to see</p>
-    <input type="text" class="form-control" id="username"
-           required
-           [(ngModel)]="username" name="username"
-           #name="ngModel">
-           <div [hidden]="name.valid || name.pristine"
-       class="alert alert-danger">
-    username is required
-  </div>
-  </div>
-
+    <p>select the gardeners username for the gardens youd like to see</p>
+      <select class="form-control"  id="username"
+              required
+              [(ngModel)]="username" name="usernames">
+        <option *ngFor="let user of usernames" [value]="user">{{user}}</option>
+      </select>
+    </div>
+<br>
 <button type="submit" class="btn btn-success" [disabled]="!gardenForm.form.valid" >submit</button>
+<br>
+  <br>
 </form>
 </div>
 
@@ -27,4 +26,9 @@
   </div>
   <br>
   <button class="btn btn-success" (click)="submitted=false">search a different gardener</button>
+  <br>
+  <br>
 </div>
+</div>
+</body>
+</html>

@@ -17,13 +17,35 @@
       <p class="card-text">Growing Degree Days: {{ plant.openfarm_data.attributes.growing_degree_days }} days</p>
 
       <div class = "container">
-      <!-- <div class="form-group"> 
-        <input class="form-control" type="text" placeholder="enter garden name" aria-label="Garden Name" [(ngModel)]="gardenName">
-    <br>
+    <h5 class="card-title">plant in existing garden</h5>
+    <div [hidden]="submitted">
+    <form (ngSubmit)="addUserGardens2(username)" #gardenForm="ngForm">
+    <div class="form-group">
+      <label class="formtitle" for="power">select username</label>
+      <select class="form-control"  id="username"
+              required
+              [(ngModel)]="username" name="usernames">
+        <option *ngFor="let user of usernames" [value]="user">{{user}}</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-success" [disabled]="!gardenForm.form.valid" >enter username</button>
+</form>
+</div>
+<br>
+<div [hidden]="!submitted">
+    <div class="form-group">
+      <label class="formtitle" for="power">select garden</label>
+      <select class="form-control"  id="garden"
+              required
+              [(ngModel)]="gardenName" name="gardenname">
+        <option *ngFor="let garden of gardenNames" [value]="garden">{{garden}}</option>
+      </select>
+    </div>
+    <div class="form-group"> 
       </div>
-    <button type="button" class="btn btn-success" (click)="addToGarden()">add to garden</button> -->
-    <br>
-    <br>
+    <a href="/garden/{{gardenName}}"  class="btn btn-success" (click)="addToGarden()">plant in garden</a>
+  </div>
+  <h5 class="card-title">or</h5>
     <a href="/create-garden" class="btn btn-success">create garden</a>
   </div>
   
@@ -32,6 +54,5 @@
   </body>
 </html>
 
-  <!-- style="width: 18rem;" -->
 
   
