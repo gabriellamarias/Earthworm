@@ -26,31 +26,46 @@ namespace EarthwormAPI.Controllers
             {
                 var plants = new List<Plant>();
                 List<dynamic> dynamicPlant = new List<dynamic>();
-
+                List<Task<HttpResponseMessage>> responseTaskList = new List<Task<HttpResponseMessage>>();
 
                 for (var x = 1; x < 30;  x++)
                 {
-                    var response = await client.GetAsync(string.Format(plantURL, $"/{x}"));
+                    var response =  client.GetAsync(string.Format(plantURL, $"/{x}"));
+                    responseTaskList.Add(response);
                     //var jsonDataAsString = await response.Content.ReadAsStringAsync();
                     //var plant = JsonConvert.DeserializeObject<Plant>(jsonDataAsString);
 
                     //plants.Add(plant);
 
-                    int status = (int)response.StatusCode;
+                    //int status = (int)response.StatusCode;
+                    //if (status != 404)
+                    //{
+                    //    var jsonDataAsString = await response.Content.ReadAsStringAsync();
+                    //    dynamic config = JsonConvert.DeserializeObject<ExpandoObject>(jsonDataAsString, new ExpandoObjectConverter());
+                        
+
+                    //    Plant newPlant = new Plant(config);
+                    //    plants.Add(newPlant);
+                    //    //dynamicPlant.Add(config);
+                    //}
+                    
+                }
+
+                var taskList = await Task.WhenAll(responseTaskList);
+
+                for (int i = 0; i < taskList.Length; i++)
+                {
+                    int status = (int)taskList[i].StatusCode;
                     if (status != 404)
                     {
-                        var jsonDataAsString = await response.Content.ReadAsStringAsync();
+                        var jsonDataAsString = await taskList[i].Content.ReadAsStringAsync();
                         dynamic config = JsonConvert.DeserializeObject<ExpandoObject>(jsonDataAsString, new ExpandoObjectConverter());
-                        
+
 
                         Plant newPlant = new Plant(config);
                         plants.Add(newPlant);
                         //dynamicPlant.Add(config);
                     }
-
-
-
-
                 }
                 //var listOfPlants = new OkObjectResult (plants);
                 var listOfPlants = new OkObjectResult(plants);
