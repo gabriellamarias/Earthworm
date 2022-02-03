@@ -28,6 +28,7 @@ namespace EarthwormAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddMemoryCache();
 
             services.AddDbContext<EarthwormAPIContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("EarthwormAPIContext")));

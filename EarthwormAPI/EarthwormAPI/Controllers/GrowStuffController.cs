@@ -9,6 +9,8 @@ using Newtonsoft.Json;
 using EarthwormAPI.Models;
 using System.Dynamic;
 using Newtonsoft.Json.Converters;
+using Microsoft.Extensions.Caching.Memory;
+using Microsoft.Extensions.Logging;
 
 namespace EarthwormAPI.Controllers
 {
@@ -16,8 +18,14 @@ namespace EarthwormAPI.Controllers
     [ApiController]
     public class GrowStuffController : ControllerBase
     {
+        private readonly IMemoryCache _cache;
         public string plantURL = "https://www.growstuff.org/crops/{0}.json";
         public string baseURL = "https://www.growstuff.org/crops.json";
+        public GrowStuffController(ILogger<GrowStuffController> logger, IMemoryCache memoryCache)
+        {
+            _cache = memoryCache;
+        }
+
         [HttpGet]
         [Route("plantlist")]
         public async Task<IActionResult> ViewCrops()
@@ -68,6 +76,20 @@ namespace EarthwormAPI.Controllers
                     }
                 }
                 //var listOfPlants = new OkObjectResult (plants);
+                List<Plant> cacheEntry;
+                if (!_cache.TryGetValue(CacheKeys.Entry, out cacheEntry))
+                {
+                    // Key not in cache, so get data.
+                    cacheEntry = plants;
+
+                    // Set cache options.
+                    var cacheEntryOptions = new MemoryCacheEntryOptions()
+                        // Keep in cache for this time, reset time if accessed.
+                        .SetSlidingExpiration(TimeSpan.FromSeconds(60));
+
+                    // Save data in cache.
+                    _cache.Set(CacheKeys.Entry, cacheEntry, cacheEntryOptions);
+                }
                 var listOfPlants = new OkObjectResult(plants);
 
 
