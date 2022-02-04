@@ -15,6 +15,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { GardenPageComponent } from './garden-page/garden-page.component';
 import { CreateGardenComponent } from './create-garden/create-garden.component';
 import { GardenCenterComponent } from './garden-center/garden-center.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { GardenCenterComponent } from './garden-center/garden-center.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    FontAwesomeModule
 
 
   ],

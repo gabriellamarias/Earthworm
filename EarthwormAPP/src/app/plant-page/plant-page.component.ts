@@ -5,6 +5,8 @@ import { Plant } from '../models/plant';
 import { GardenApiService } from '../services/garden-api.service';
 import { PlantApiService } from '../services/plant-api.service';
 import { GardenerApiService } from '../services/gardener-api.service';
+import { faQuestionCircle } from '@fortawesome/free-regular-svg-icons';
+
 
 @Component({
   selector: 'app-plant-page',
@@ -22,6 +24,7 @@ gardenNames: string[] = [];
 usernames: string[] = [];
 username: string = "";
 submitted = false;
+faQuestionCircle = faQuestionCircle; //font awesome icon
 
   constructor(
     private plantAPISvc: PlantApiService,
