@@ -13,6 +13,34 @@
 </div> -->
 <html>
     <body style="background-color:rgb(77, 100, 61);text-align:center">
+      <br>
+      <br>
+      <div class="input-group" style="width: 300px">
+        <input type="search" class="form-control rounded" placeholder="plant name" aria-label="Search" aria-describedby="search-addon">
+        <button type="button" class="btn btn-success">search</button>
+      </div>
+      <br>
+      <div class="dropdown">
+        <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false" style="margin:5px">
+          search plants by perennial:
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+          <li><button class="dropdown-item" type="button">perennials</button></li>
+          <li><button class="dropdown-item" type="button">non-perennials</button></li>
+        </ul>
+        <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false" style="margin:5px">
+          search plants by sun requirements:
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+          <li><button class="dropdown-item" type="button">full sun</button></li>
+          <li><button class="dropdown-item" type="button">partial sun</button></li>
+          <li><button class="dropdown-item" type="button">partial shade</button></li>
+          <li><button class="dropdown-item" type="button">shade</button></li>
+        </ul>
+      </div>
+
+
+      
 <div class="cards ; row row-cols-1 row-cols-md-5 g-5">
 
       <app-plant-preview  *ngFor="let p of plants" [content]="p"></app-plant-preview>
@@ -20,3 +48,5 @@
 </div>
 </body>
 </html>
+
+

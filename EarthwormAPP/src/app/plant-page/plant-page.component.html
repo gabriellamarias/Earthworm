@@ -5,16 +5,16 @@
       <h5 class="card-title">{{ plant.name }}</h5>
       <img src="{{plant.openfarm_data.attributes.main_image_path}}" class="plant-image" alt="Photo not Available" width="500" height="300">
       
-      <p class="card-text" data-toggle="tooltip" title="A plant that lives more than 2 years">Perennial<fa-icon [icon]="faQuestionCircle"></fa-icon>: {{ plant.perennial }}</p>
+      <p class="card-text" data-bs-toggle="tooltip" data-bs-placement="top" title="A plant that lives more than 2 years">Perennial <fa-icon [icon]="faQuestionCircle"></fa-icon>: {{ plant.perennial }}</p>
       <p class="card-text">Median lifespan: {{ plant.median_lifespan }} days</p>
       <p class="card-text">Days to first harvest: {{ plant.median_days_to_first_harvest }} days</p>
       <p class="card-text">Days to last harvest: {{ plant.median_days_to_last_harvest }} days</p>
       <p class="card-text">{{ plant.openfarm_data.attributes.description }}</p>
-      <p class="card-text"data-toggle="tooltip" title="Horizontal distance between rows">Row Spacing<fa-icon [icon]="faQuestionCircle"></fa-icon>: {{ plant.openfarm_data.attributes.row_spacing }}</p>
+      <p class="card-text"data-toggle="tooltip" title="Horizontal distance between rows">Row Spacing <fa-icon [icon]="faQuestionCircle"></fa-icon>: {{ plant.openfarm_data.attributes.row_spacing }}</p>
       <p class="card-text">Spread: {{ plant.openfarm_data.attributes.spread }} cm</p>
       <p class="card-text">Height: {{ plant.openfarm_data.attributes.height }} cm</p>
-      <p class="card-text"data-toggle="tooltip" title="Prefered planting method">Sowing Method<fa-icon [icon]="faQuestionCircle"></fa-icon>: {{ plant.openfarm_data.attributes.sowing_method }}</p>
-      <p class="card-text"data-toggle="tooltip" title="Hours of sun: Full Sun: 6+, Partial Sun: 3-6, Partial Shade: 3, Shade: &#60;3">Sun Requirements<fa-icon [icon]="faQuestionCircle"></fa-icon>: {{ plant.openfarm_data.attributes.sun_requirements }}</p>
+      <p class="card-text"data-toggle="tooltip" title="Prefered planting method">Sowing Method <fa-icon [icon]="faQuestionCircle"></fa-icon>: {{ plant.openfarm_data.attributes.sowing_method }}</p>
+      <p class="card-text"data-toggle="tooltip" title="Hours of sun: Full Sun: 6+, Partial Sun: 3-6, Partial Shade: 3, Shade: &#60;3">Sun Requirements <fa-icon [icon]="faQuestionCircle"></fa-icon>: {{ plant.openfarm_data.attributes.sun_requirements }}</p>
       <p class="card-text">Growing Degree Days: {{ plant.openfarm_data.attributes.growing_degree_days }} days</p>
 
       <div class = "container">

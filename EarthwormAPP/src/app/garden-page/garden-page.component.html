@@ -1,25 +1,9 @@
-<!-- <html>
-  <body style="background-color:rgb(77, 100, 61);text-align:center">
-  <div class="card; shadow p-3 mb-5 bg-white rounded" >
-    <div class="card-body">
-      <h5 class="card-title">{{ name }}</h5>
-      <p class="card-text" *ngFor="let string of plants"> {{ string }}</p>
-    </div>
-</div>
-</body>
-</html>
-
-<div class="cards ; row row-cols-1 row-cols-md-5 g-5">
-
-    <app-plant-preview  *ngFor="let p of plants" [content]="p"></app-plant-preview>
-    
-</div> -->
-
 <html>
     <body style="background-color:rgb(77, 100, 61);text-align:center">
         <br>
         <div [hidden]="deleted">
         <div [hidden]="updated">
+          <div [hidden]="plantdeleted">
         <h5 class="header">{{ name }}</h5>
         <button class="btn btn-outline-danger" (click)="deleteGarden()">delete {{name}}</button>
         <button class="btn btn-outline-success" (click)="updateButton()">rename {{name}}</button>
@@ -36,16 +20,16 @@
           <a href="/plant/{{plant.name}}" class="btn btn-success">details</a>
           <br>
           <br>
-          <!-- <button class="btn btn-outline-danger" (click)="removePlant()">remove plant from garden</button> -->
+          <button #plant.name class="btn btn-outline-danger" (click)="removePlant(plant.name)">remove plant from garden</button>
         </div>
       </div>
     </div>
   </div>
   </div>
 </div>
+</div>
 <div [hidden]="!deleted">
   <h5 class="header">{{ name }} has been deleted</h5>
-
 </div>
 <div [hidden]="!updated">
   <form>
@@ -57,9 +41,11 @@
     <br>
     <button class="btn btn-outline-success" (click)="goBack()">go back</button>
   </form>
+</div>
 
-  
-  
+<div [hidden]="!plantdeleted">
+<h5>(plantName) has been deleted</h5>
+<button class="btn btn-outline-success" (click)="goBack()">go back</button>
 </div>
 <br>
 <br>
@@ -67,5 +53,5 @@
 <br>
 <br>
 <br>
-<!-- </body>
-</html> -->
+</body>
+</html>

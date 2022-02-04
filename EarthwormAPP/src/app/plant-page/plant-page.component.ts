@@ -26,6 +26,7 @@ username: string = "";
 submitted = false;
 faQuestionCircle = faQuestionCircle; //font awesome icon
 
+
   constructor(
     private plantAPISvc: PlantApiService,
     private gardenAPISvc: GardenApiService,

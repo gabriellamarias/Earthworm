@@ -37,7 +37,7 @@ export class GardenApiService {
   }
 
   deletePlant(gardenName: string, plantName: string, garden: gardenCRUD): Observable<any> {
-    return this.httpClient.patch(`https://localhost:44311/api/garden/deleteplant?gardenname=${ gardenName }&plantname=${ gardenName }`, garden)
+    return this.httpClient.patch(`https://localhost:44311/api/garden/deleteplant?gardenname=${ gardenName }&plantname=${ plantName }`, garden)
   }
   
 

@@ -2,3 +2,21 @@
 .body {
     min-height: 100%
 }
+
+.btn {
+        font-size: 13px;
+        font-family: Roboto Mono;
+
+}
+
+.dropdown {
+    font-family: Roboto Mono;
+
+}
+
+.form-control{
+    font-size: 13px;
+    font-family: Roboto Mono;
+    font-weight: bold;
+}
+

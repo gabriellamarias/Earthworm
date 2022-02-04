@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Plant } from '../models/plant';
 import { PlantApiService } from '../services/plant-api.service';
 import { gardenCRUD } from '../models/gardencrud';
+import { ThisReceiver } from '@angular/compiler';
 
 
 @Component({
@@ -19,6 +20,7 @@ export class GardenPageComponent implements OnInit {
   username: string = "";
   deleted = false;
   updated = false;
+  plantdeleted = false;
   newname : string = "";
   plantName: string = "";
 
@@ -67,10 +69,12 @@ export class GardenPageComponent implements OnInit {
     this.newname = newname2;
     this.userGarden = {gardenName:this.newname, username: this.username}
     this.gardenAPISvc.updateGarden(this.name, this.userGarden).subscribe();
-    this.name = newname2;
-    this.updated = false;
-    this.deleted = false;
-    
+    this.name = newname2;   
+    this.goBack();
+  }
+
+  reload(){
+    window.location.reload();
   }
 
   goBack() {
@@ -80,10 +84,10 @@ export class GardenPageComponent implements OnInit {
 
   removePlant(plantname2: string){
     this.plantName = plantname2;
+    console.log(this.plantName)
     this.gardenAPISvc.deletePlant(this.name, this.plantName, this.userGarden).subscribe();
-    this.updated = false;
-    this.deleted = false;
-
+    this.plantdeleted = true;
+    this.reload();
   }
 
 }

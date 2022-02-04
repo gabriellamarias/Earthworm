@@ -33,7 +33,7 @@
 </div>
 
 
-<div [hidden]="!submitted">
+<div [hidden]="!submitted"  ng-init="let this.username = username">
     <p class="formtitle">garden added!</p>
     <div class="row">
       <div class="col-xs-3">garden name:</div>
@@ -43,7 +43,7 @@
     <button class="btn btn-success" (click)="submitted=false">grow another garden</button>
     <br>
     <br>
-    <a href="/garden/{{model.gardenName}}/{{model.username}}"  class="btn btn-success" >go to {{model.gardenName}}</a>
+    <a href="/garden/{{model.gardenName}}/{{username}}"  class="btn btn-success" >go to {{model.gardenName}}</a>
     <br>
     <br>
   </div>
