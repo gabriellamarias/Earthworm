@@ -9,7 +9,8 @@ import { PlantApiService } from '../services/plant-api.service';
   styleUrls: ['./plant-list.component.css']
 })
 export class PlantListComponent implements OnInit {
-  plants: Plant[] = []
+  plants: Plant[] = [];
+  plantName: string = "";
  
 
   constructor(
@@ -26,6 +27,12 @@ export class PlantListComponent implements OnInit {
       console.log("[INFO]")
         console.log(plants);
         this.plants = plants
-    })
+    })}
+  
 
-}}
+  getSearchedPlant() {
+    this.plantSVC.getSearchedPlant(this.plantName).subscribe((plants) => {
+      this.plants = plants;
+    })}
+  }
+

@@ -21,5 +21,9 @@ export class PlantApiService {
 
   }
 
+  getSearchedPlant(plant:string): Observable<Plant[]>{
+    return this.httpClient.get<Plant[]>(`https://localhost:44311/growstuff/plantname?plantname=${ plant }`)
+  }
+
 
 }

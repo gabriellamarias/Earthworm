@@ -39,7 +39,7 @@ faQuestionCircle = faQuestionCircle; //font awesome icon
     if(name) {
       this.name = name;
   }
-  this.plantAPISvc.getPlants().subscribe((plants) => {
+  this.plantAPISvc.getSearchedPlant(this.name).subscribe((plants) => {
     for(var i = 0; i < plants.length; i++)
     {if (plants[i].name == this.name)
       {

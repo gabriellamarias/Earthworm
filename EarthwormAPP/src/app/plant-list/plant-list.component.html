@@ -15,9 +15,9 @@
     <body style="background-color:rgb(77, 100, 61);text-align:center">
       <br>
       <br>
-      <div class="input-group" style="width: 300px">
-        <input type="search" class="form-control rounded" placeholder="plant name" aria-label="Search" aria-describedby="search-addon">
-        <button type="button" class="btn btn-success">search</button>
+      <div class="input-group" style="width: 350px">
+        <input type="search" class="form-control rounded" placeholder="search plants by plant name" aria-label="Search" aria-describedby="search-addon"  name="plantNameSearch"  [(ngModel)]="plantName">
+        <button type="button" class="btn btn-success" (click)= getSearchedPlant() >search</button>
       </div>
       <br>
       <div class="dropdown">
@@ -46,6 +46,11 @@
       <app-plant-preview  *ngFor="let p of plants" [content]="p"></app-plant-preview>
       
 </div>
+<br>
+<br>
+<br>
+<br>
+<br>
 </body>
 </html>
 
