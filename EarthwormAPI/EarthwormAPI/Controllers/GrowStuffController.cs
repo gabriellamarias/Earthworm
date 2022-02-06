@@ -31,6 +31,9 @@ namespace EarthwormAPI.Controllers
         [Route("plantname")]
         public async Task<IActionResult> GetPlantByName([FromQuery]string plantname)
         {
+            if (plantname == null) {
+                return BadRequest();
+            }
             plantname.ToLower();
 
             using (HttpClient client = new HttpClient())
@@ -180,7 +183,7 @@ namespace EarthwormAPI.Controllers
                     // Set cache options.
                     var cacheEntryOptions = new MemoryCacheEntryOptions()
                         // Keep in cache for this time, reset time if accessed.
-                        .SetSlidingExpiration(TimeSpan.FromSeconds(60));
+                        .SetSlidingExpiration(TimeSpan.FromSeconds(600));
 
                     // Save data in cache.
                     _cache.Set(CacheKeys.Entry, cacheEntry, cacheEntryOptions);
