@@ -25,15 +25,12 @@ namespace EarthwormAPI.Controllers
         [Route("getgarden")]
         public async Task<ActionResult<garden>> GetGarden([FromQuery] string gardenname, [FromQuery] string username)
         {
-            gardenname.ToLower();
-            username.ToLower();
-
             var gardens = await _context.garden.ToListAsync();
             var joinedGardens = new List<string>();
 
             foreach (garden g in gardens)
             {
-                if (g.gardenName == gardenname && g.username == username)
+                if (g.gardenName == gardenname.ToLower() && g.username == username.ToLower())
                 {
                     joinedGardens.Add(g.plantName);
                 }

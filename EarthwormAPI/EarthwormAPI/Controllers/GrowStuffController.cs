@@ -31,10 +31,32 @@ namespace EarthwormAPI.Controllers
         [Route("plantname")]
         public async Task<IActionResult> GetPlantByName([FromQuery]string plantname)
         {
-            if (plantname == null) {
-                return BadRequest();
+            String s = "";
+
+            try
+            {
+                plantname = plantname.ToLower();
+                for (int i = 0; i < plantname.Length; ++i)
+                {
+
+                    // Changing the ith character
+                    // to '-' if it's a space.
+                    if (plantname[i] == ' ')
+                    {
+                        s += '-';
+                    }
+                    else
+                    {
+                        s += plantname[i];
+                    }
+                }
+                plantname = s;
             }
-            plantname.ToLower();
+
+            catch (System.NullReferenceException)
+            {
+                return StatusCode(500);
+            }
 
             using (HttpClient client = new HttpClient())
             {
@@ -52,78 +74,6 @@ namespace EarthwormAPI.Controllers
             }
         }
 
-        //[HttpGet]
-        //[Route("plantname")]
-        //public async Task<IActionResult> GetPlantByName(string name)
-        //{
-        //    using (HttpClient client = new HttpClient())
-        //    {
-        //        var plants = new List<Plant>();
-        //        List<dynamic> dynamicPlant = new List<dynamic>();
-        //        List<Task<HttpResponseMessage>> responseTaskList = new List<Task<HttpResponseMessage>>();
-
-        //        for (var x = 1; x < 30; x++)
-        //        {
-        //            var response = client.GetAsync(string.Format(plantURLByName, $"/{name}"));
-        //            responseTaskList.Add(response);
-        //            //var jsonDataAsString = await response.Content.ReadAsStringAsync();
-        //            //var plant = JsonConvert.DeserializeObject<Plant>(jsonDataAsString);
-
-        //            //plants.Add(plant);
-
-        //            //int status = (int)response.StatusCode;
-        //            //if (status != 404)
-        //            //{
-        //            //    var jsonDataAsString = await response.Content.ReadAsStringAsync();
-        //            //    dynamic config = JsonConvert.DeserializeObject<ExpandoObject>(jsonDataAsString, new ExpandoObjectConverter());
-
-
-        //            //    Plant newPlant = new Plant(config);
-        //            //    plants.Add(newPlant);
-        //            //    //dynamicPlant.Add(config);
-        //            //}
-
-        //        }
-        //        var taskList = await Task.WhenAll(responseTaskList);
-
-        //        for (int i = 0; i < taskList.Length; i++)
-        //        {
-        //            int status = (int)taskList[i].StatusCode;
-        //            if (status != 404)
-        //            {
-        //                var jsonDataAsString = await taskList[i].Content.ReadAsStringAsync();
-        //                dynamic config = JsonConvert.DeserializeObject<ExpandoObject>(jsonDataAsString, new ExpandoObjectConverter());
-
-
-        //                Plant newPlant = new Plant(config);
-        //                plants.Add(newPlant);
-        //                //dynamicPlant.Add(config);
-        //            }
-        //        }
-        //        //var listOfPlants = new OkObjectResult (plants);
-        //        List<Plant> cacheEntry;
-        //        if (!_cache.TryGetValue(CacheKeys.Entry, out cacheEntry))
-        //        {
-        //            // Key not in cache, so get data.
-        //            cacheEntry = plants;
-
-        //            // Set cache options.
-        //            var cacheEntryOptions = new MemoryCacheEntryOptions()
-        //                // Keep in cache for this time, reset time if accessed.
-        //                .SetSlidingExpiration(TimeSpan.FromSeconds(60));
-
-        //            // Save data in cache.
-        //            _cache.Set(CacheKeys.Entry, cacheEntry, cacheEntryOptions);
-        //        }
-        //        var listOfPlants = new OkObjectResult(plants);
-
-
-        //        return (listOfPlants);
-
-        //    }
-        //}
-
-
         [HttpGet]
         [Route("plantlist")]
         public async Task<IActionResult> ViewCrops()
@@ -134,7 +84,7 @@ namespace EarthwormAPI.Controllers
                 List<dynamic> dynamicPlant = new List<dynamic>();
                 List<Task<HttpResponseMessage>> responseTaskList = new List<Task<HttpResponseMessage>>();
 
-                for (var x = 1; x < 30;  x++)
+                for (var x = 1; x < 50;  x++)
                 {
                     var response =  client.GetAsync(string.Format(plantURL, $"/{x}"));
                     responseTaskList.Add(response);

@@ -15,11 +15,10 @@
     <body style="background-color:rgb(77, 100, 61);text-align:center">
       <br>
       <br>
-      <div class="input-group" style="width: 350px">
-        <input type="search" class="form-control rounded" placeholder="search plants by plant name" aria-label="Search" aria-describedby="search-addon"  name="plantNameSearch"  [(ngModel)]="plantName">
+      <div class="input-group" style="width: 480px; margin:5px">
+        <input type="search" class="form-control rounded" placeholder="if the plant needed is not below, search by name" aria-label="Search" aria-describedby="search-addon"  name="plantNameSearch"  [(ngModel)]="plantName">
         <button type="button" class="btn btn-success" (click)= getSearchedPlant() >search</button>
       </div>
-      <br>
       <div class="dropdown">
         <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false" style="margin:5px">
           search plants by perennial:
@@ -42,12 +41,33 @@
 
 
       
-<div *ngIf="filtered" class="cards ; row row-cols-1 row-cols-md-5 g-5" >
+<div *ngIf="filtered" [hidden]="notFound" class="cards ; row row-cols-1 row-cols-md-5 g-5" >
       <app-plant-preview  *ngFor="let p of filteredPlants"  [content]="p"></app-plant-preview>
 </div>
-<div *ngIf="!filtered" class="cards ; row row-cols-1 row-cols-md-5 g-5" >
+<div *ngIf="!filtered" [hidden]="notFound" class="cards ; row row-cols-1 row-cols-md-5 g-5" >
   <app-plant-preview  *ngFor="let p of plants"  [content]="p"></app-plant-preview>
 </div>
+
+<div [hidden]="!notFound">
+  <br>
+  <br>
+  <br>
+ <h5 class="notfound">plant not found, please reset</h5>
+ <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+</div>
+
 
 
 <br>

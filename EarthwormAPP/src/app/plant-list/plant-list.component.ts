@@ -13,6 +13,7 @@ export class PlantListComponent implements OnInit {
   plantName: string = "";
   filteredPlants: Plant[] = [];
   filtered: boolean = false;
+  notFound: boolean = false;
 
   constructor(
     private plantSVC: PlantApiService,
@@ -36,11 +37,17 @@ export class PlantListComponent implements OnInit {
     this.plantSVC.getSearchedPlant(this.plantName).subscribe((plants) => {
       this.filteredPlants = plants;
       this.filtered = true;
+      this.notFound = false;
 
-    })}
-
+    },
+    err => {
+      console.log("something happened");
+      this.notFound = true;
+     });
+ }
     resetPlants() {
       this.filtered = false;
+      this.notFound = false;
     }
 
     perennialPlants() {

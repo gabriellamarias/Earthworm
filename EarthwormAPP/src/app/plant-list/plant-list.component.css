@@ -15,7 +15,7 @@
 }
 
 .form-control{
-    font-size: 13px;
+    font-size: 11px;
     font-family: Roboto Mono;
     font-weight: bold;
 }
@@ -24,4 +24,19 @@
     width: 357px;
     margin-right: auto !important;
     margin-left: auto !important;
+  }
+
+  .notfound{
+    font-family: Roboto Mono;
+    font-size: 25px;
+    text-align: center;
+    letter-spacing: 3px;
+    color: whitesmoke;
+  }
+
+  .tip{
+    font-family: Roboto Mono;
+    font-size: 12px;
+    text-align: center;
+    color: whitesmoke;
   }

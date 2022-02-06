@@ -23,20 +23,19 @@
     <form (ngSubmit)="addUserGardens2(username)" #gardenForm="ngForm">
     <div class="form-group">
       <label class="formtitle" for="power">select username</label>
-      <select class="form-control"  id="username"
+      <select class="form-control" style="margin:5px" id="username"
               required
               [(ngModel)]="username" name="usernames">
         <option *ngFor="let user of usernames" [value]="user">{{user}}</option>
       </select>
     </div>
-    <button type="submit" class="btn btn-success" [disabled]="!gardenForm.form.valid" >enter username</button>
+    <button type="submit" class="btn btn-success" style="margin:5px" [disabled]="!gardenForm.form.valid" >enter username</button>
 </form>
 </div>
-<br>
 <div [hidden]="!submitted">
     <div class="form-group">
       <label class="formtitle" for="power">select garden</label>
-      <select class="form-control"  id="garden"
+      <select class="form-control" style="margin:5px" id="garden"
               required
               [(ngModel)]="gardenName" name="gardenname">
         <option *ngFor="let garden of gardenNames" [value]="garden">{{garden}}</option>
@@ -44,10 +43,10 @@
     </div>
     <div class="form-group"> 
       </div>
-    <a href="/garden/{{gardenName}}/{{username}}"  class="btn btn-success" (click)="addToGarden()">plant in garden</a>
+    <a href="/garden/{{gardenName}}/{{username}}" style="margin:5px" class="btn btn-success" (click)="addToGarden()">plant in garden</a>
   </div>
   <h5 class="card-title">or</h5>
-    <a href="/create-garden" class="btn btn-success">create garden</a>
+    <a href="/create-garden" class="btn btn-success" style="margin:5px">create garden</a>
   </div>
   
     </div>
