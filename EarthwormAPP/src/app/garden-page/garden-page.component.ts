@@ -16,6 +16,8 @@ export class GardenPageComponent implements OnInit {
   name: string = "";
   gardenPlants: string[] = [];
   allPlants: Plant[] = [];
+  singlePlant =  {} as Plant;
+  filteredPlants: Plant[] = [];
   userGarden : gardenCRUD = {username: '', gardenName: ''};
   username: string = "";
   deleted = false;
@@ -55,6 +57,31 @@ export class GardenPageComponent implements OnInit {
   })
   this.userGarden = {gardenName:this.name, username: this.username}
   }
+
+  getGardenByPlantName() {
+    for (var i = 0; i < this.gardenPlants.length; i++)
+    {
+      this.getSearchedPlant(this.gardenPlants[i])
+      
+    }
+  }
+
+
+
+  getSearchedPlant(plant: string) {
+    this.plantAPISvc.getSinglePlant(plant).subscribe((plant) => {
+      this.singlePlant = plant;
+      this.allPlants.push(this.singlePlant);
+      // this.filtered = true;
+      // this.notFound = false;
+
+    },
+    // err => {
+    //   console.log("something happened");
+    //   this.notFound = true;
+    //  }
+    );
+ }
 
   deleteGarden(){
     this.deleted = true;
