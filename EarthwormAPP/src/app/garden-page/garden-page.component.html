@@ -9,6 +9,7 @@
         <button class="btn btn-outline-success" (click)="updateButton()">rename {{name}}</button>
         <div class="cards ; row row-cols-1 row-cols-md-4 g-4">
 <div *ngFor="let plant of allPlants">
+ 
 
     <div class="card ; shadow p-3 mb-5 bg-white rounded " style="width: 18rem;"  >
         <img src="{{plant.openfarm_data.attributes.main_image_path}}" class="plant-image" alt="Photo not Available" width="255" height="155">
@@ -24,6 +25,7 @@
         </div>
       </div>
     </div>
+    
   </div>
   </div>
 </div>

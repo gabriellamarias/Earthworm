@@ -73,6 +73,52 @@ namespace EarthwormAPI.Controllers
 
             }
         }
+        [HttpGet("{singleplantname}")]
+        [Route("singleplantname")]
+        public async Task<IActionResult> GetSinglePlantByName([FromQuery] string plantname)
+        {
+            String s = "";
+
+            try
+            {
+                plantname = plantname.ToLower();
+                for (int i = 0; i < plantname.Length; ++i)
+                {
+
+                    // Changing the ith character
+                    // to '-' if it's a space.
+                    if (plantname[i] == ' ')
+                    {
+                        s += '-';
+                    }
+                    else
+                    {
+                        s += plantname[i];
+                    }
+                }
+                plantname = s;
+            }
+
+            catch (System.NullReferenceException)
+            {
+                return StatusCode(500);
+            }
+
+            using (HttpClient client = new HttpClient())
+            {
+                //var plants = new List<Plant>();
+                List<dynamic> dynamicPlant = new List<dynamic>();
+                var response = await client.GetAsync($"http://growstuff.org/crops/{plantname}.json");
+                var jsonDataAsString = await response.Content.ReadAsStringAsync();
+                dynamic config = JsonConvert.DeserializeObject<ExpandoObject>(jsonDataAsString, new ExpandoObjectConverter());
+                Plant newPlant = new Plant(config);
+                //plants.Add(newPlant);
+                var searchedPlants = new OkObjectResult(newPlant);
+                return (searchedPlants);
+
+
+            }
+        }
 
         [HttpGet]
         [Route("plantlist")]

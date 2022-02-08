@@ -16,7 +16,9 @@ export class GardenPageComponent implements OnInit {
   name: string = "";
   gardenPlants: string[] = [];
   allPlants: Plant[] = [];
-  singlePlant =  {} as Plant;
+  singlePlant: Plant  = {openfarm_data:{attributes: {description: "", row_spacing:0, spread:0, height: 0, sowing_method: "",
+  sun_requirements: "", growing_degree_days: 0, main_image_path: ""}}, name: "", en_wikipedia_url:"", perennial: "",
+   median_lifespan: 0, median_days_to_first_harvest: 0, median_days_to_last_harvest: 0};
   filteredPlants: Plant[] = [];
   userGarden : gardenCRUD = {username: '', gardenName: ''};
   username: string = "";
@@ -30,7 +32,9 @@ export class GardenPageComponent implements OnInit {
     private gardenAPISvc: GardenApiService,
     private route: ActivatedRoute,
     private plantAPISvc: PlantApiService
-  ) { }
+  ) { 
+    
+  }
 
   ngOnInit(): void {
     const name = this.route.snapshot.paramMap.get('name');
@@ -45,20 +49,22 @@ export class GardenPageComponent implements OnInit {
 
     this.userGarden = {gardenName:this.name, username: this.username}
 
-    this.gardenAPISvc.getAllGardenPlants(this.name, this.username).subscribe((plants) => {
-      this.gardenPlants = plants
-    })
+    // this.gardenAPISvc.getAllGardenPlants(this.name, this.username).subscribe((plants) => {
+    //   this.gardenPlants = plants
+    //   console.log('[gardenPlants]');
+    //   console.log(plants);
+    // })
+    this.callAPI();
+    //this.getSearchedPlant();
 
-    // this.getSearchedPlant();
-
-    this.plantAPISvc.getPlants().subscribe((plants) => {
-    for(var i = 0; i < plants.length; i++)
-    { if (this.gardenPlants.includes(plants[i].name))
-      {
-        this.allPlants.push(plants[i])
-      }
-    }
-  })
+  //   this.plantAPISvc.getPlants().subscribe((plants) => {
+  //   for(var i = 0; i < plants.length; i++)
+  //   { if (this.gardenPlants.includes(plants[i].name))
+  //     {
+  //       this.allPlants.push(plants[i])
+  //     }
+  //   }
+  // })
   }
 
 //   getGardenByPlantName() {
@@ -66,24 +72,32 @@ export class GardenPageComponent implements OnInit {
 //     { 
 //     }
 //   }
-
-//   getSearchedPlant() {
-//     for (var i = 0; i < this.gardenPlants.length; i++)
-//     {
-//       this.plantAPISvc.getSinglePlant(this.gardenPlants[i]).subscribe((plant) => {
-//       this.singlePlant = plant;
-//       console.log(this.singlePlant)
-//       this.allPlants.push(this.singlePlant);
-//       // this.filtered = true;
-//       // this.notFound = false;
-
-//     }
-//     // err => {
-//     //   console.log("something happened");
-//     //   this.notFound = true;
-//     //  }
-//     );
-//  }}
+  callAPI() {
+    
+    this.gardenAPISvc.getAllGardenPlants(this.name, this.username).subscribe((plants) => {
+      this.gardenPlants = plants
+      console.log('[gardenPlants]');
+      console.log(plants);
+      this.getSearchedPlant();
+    })
+  }
+  getSearchedPlant() {
+    console.log('hi');
+    for (var i = 1; i < this.gardenPlants.length; i++)
+   {
+      this.plantAPISvc.getSinglePlant(this.gardenPlants[i]).subscribe((plant) => {
+      this.singlePlant = plant;
+     // console.log(this.singlePlant)
+      console.log(this.singlePlant);
+      this.allPlants.push(plant);
+      // this.filtered = true;
+      // this.notFound = false;
+      
+    }
+    
+    );
+ }
+}
 
   deleteGarden(){
     this.deleted = true;
