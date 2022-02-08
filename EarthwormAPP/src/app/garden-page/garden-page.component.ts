@@ -43,9 +43,13 @@ export class GardenPageComponent implements OnInit {
       this.username = username;
     }
 
+    this.userGarden = {gardenName:this.name, username: this.username}
+
     this.gardenAPISvc.getAllGardenPlants(this.name, this.username).subscribe((plants) => {
       this.gardenPlants = plants
     })
+
+    // this.getSearchedPlant();
 
     this.plantAPISvc.getPlants().subscribe((plants) => {
     for(var i = 0; i < plants.length; i++)
@@ -55,33 +59,31 @@ export class GardenPageComponent implements OnInit {
       }
     }
   })
-  this.userGarden = {gardenName:this.name, username: this.username}
   }
 
-  getGardenByPlantName() {
-    for (var i = 0; i < this.gardenPlants.length; i++)
-    {
-      this.getSearchedPlant(this.gardenPlants[i])
-      
-    }
-  }
+//   getGardenByPlantName() {
+//     for (var i = 0; i < this.gardenPlants.length; i++)
+//     { 
+//     }
+//   }
 
+//   getSearchedPlant() {
+//     for (var i = 0; i < this.gardenPlants.length; i++)
+//     {
+//       this.plantAPISvc.getSinglePlant(this.gardenPlants[i]).subscribe((plant) => {
+//       this.singlePlant = plant;
+//       console.log(this.singlePlant)
+//       this.allPlants.push(this.singlePlant);
+//       // this.filtered = true;
+//       // this.notFound = false;
 
-
-  getSearchedPlant(plant: string) {
-    this.plantAPISvc.getSinglePlant(plant).subscribe((plant) => {
-      this.singlePlant = plant;
-      this.allPlants.push(this.singlePlant);
-      // this.filtered = true;
-      // this.notFound = false;
-
-    },
-    // err => {
-    //   console.log("something happened");
-    //   this.notFound = true;
-    //  }
-    );
- }
+//     }
+//     // err => {
+//     //   console.log("something happened");
+//     //   this.notFound = true;
+//     //  }
+//     );
+//  }}
 
   deleteGarden(){
     this.deleted = true;
