@@ -30,7 +30,7 @@ namespace EarthwormAPI.Controllers
 
             foreach (garden g in gardens)
             {
-                if (g.gardenName == gardenname.ToLower() && g.username == username.ToLower())
+                if (g.gardenName == gardenname && g.username == username)
                 {
                     joinedGardens.Add(g.plantName);
                 }

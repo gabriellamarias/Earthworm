@@ -83,7 +83,7 @@ export class GardenPageComponent implements OnInit {
   }
   getSearchedPlant() {
     console.log('hi');
-    for (var i = 1; i < this.gardenPlants.length; i++)
+    for (var i = 0; i < this.gardenPlants.length; i++)
    {
       this.plantAPISvc.getSinglePlant(this.gardenPlants[i]).subscribe((plant) => {
       this.singlePlant = plant;
